@@ -1,0 +1,14 @@
+## Interface: 11306
+## Title: TGUF3
+## Author: Empirical
+## Version 1.0a1
+## DefaultState: enabled
+## Notes: Thor's Godly unit frames
+## URL: 
+## Dependencies: TGEventManager TGLog TGUnit
+## SavedVariables:
+TGUF3.lua
+element.lua
+texture.lua
+frame.lua
+duf_layout.lua
