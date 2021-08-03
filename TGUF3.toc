@@ -7,8 +7,11 @@
 ## URL: 
 ## Dependencies: TGEventManager TGLog TGUnit
 ## SavedVariables:
+
+TG3UnitFrame.xml
+
 TGUF3.lua
 element.lua
 texture.lua
-frame.lua
-duf_layout.lua
+TG3UnitFrame.lua
+DUFLayout.lua

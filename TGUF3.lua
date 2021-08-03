@@ -19,7 +19,7 @@ function TGUF3.ADDON_LOADED(addOnName)
     end
 
     for i, layout in ipairs(DUF_LAYOUT) do
-        TGUF3.UnitFrame:new(layout)
+        TGUF3.UnitFrame:New(layout)
     end
 
     TGUF3.dbg("Loaded")
