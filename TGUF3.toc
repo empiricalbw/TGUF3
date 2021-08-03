@@ -10,9 +10,11 @@
 
 TG3UnitFrame.xml
 TG3Texture.xml
+TG3Backdrop.xml
 
 TGUF3.lua
 TG3Element.lua
 TG3Texture.lua
+TG3Backdrop.lua
 TG3UnitFrame.lua
 DUFLayout.lua

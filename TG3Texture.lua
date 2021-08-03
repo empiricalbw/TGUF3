@@ -1,11 +1,9 @@
 TGUF3.Texture = {
     name = "TGUF3.Texture",
+    xml  = "TG3TextureTemplate",
 }
 TG3TextureMixin = TGUF3.Texture
 
-function TGUF3.Texture:New(unitFrame, parent, elem)
-    -- Create the element.
-    local f = CreateFrame("Frame", nil, parent, "TG3TextureTemplate")
-    f:SetAnchors(elem.anchors)
-    f.Texture:SetTexture(elem.id)
+function TGUF3.Texture:Init(elem)
+    self.Texture:SetTexture(elem.id)
 end

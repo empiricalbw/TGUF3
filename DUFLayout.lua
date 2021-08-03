@@ -10,9 +10,13 @@ DUF_LAYOUT = {
         },
         elements = {
             {
-                class  = TGUF3.Texture,
-                id     = "interface/icons/inv_mushroom_11",
-                anchors = {
+                class     = TGUF3.Backdrop,
+                edgeFile  = "Interface/Tooltips/UI-Tooltip-Border",
+                edgeSize  = 20,
+                edgeColor = {1, 1, 1, 1},
+                bgColor   = {0, 0, 0, 1},
+                insets    = {left=5, right=5, top=5, bottom=5},
+                anchors   = {
                     {point = "TOPLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
