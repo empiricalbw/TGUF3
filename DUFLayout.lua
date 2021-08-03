@@ -8,6 +8,7 @@ DUF_LAYOUT = {
             dx    = 300,
             dy    = -300,
         },
+
         elements = {
             {
                 class     = TGUF3.Backdrop,
@@ -20,6 +21,19 @@ DUF_LAYOUT = {
                     {point = "TOPLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
+
+                elements = {
+                    {
+                        class    = TGUF3.String,
+                        text     = "$nm",
+                        alignH   = "CENTER",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOPLEFT"},
+                            {point = "BOTTOMRIGHT"},
+                        },
+                    },
+                }
             },
         },
     },
@@ -32,14 +46,32 @@ DUF_LAYOUT = {
             relativeUnit = "player",
             dy           = -45,
         },
+
         elements = {
             {
-                class  = TGUF3.Texture,
-                id     = "interface/icons/inv_mushroom_10",
-                anchors = {
+                class     = TGUF3.Backdrop,
+                edgeFile  = "Interface/Tooltips/UI-Tooltip-Border",
+                edgeSize  = 20,
+                edgeColor = {1, 1, 1, 1},
+                bgColor   = {0, 0, 0, 1},
+                insets    = {left=5, right=5, top=5, bottom=5},
+                anchors   = {
                     {point = "TOPLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
+
+                elements = {
+                    {
+                        class    = TGUF3.String,
+                        text     = "$nm",
+                        alignH   = "CENTER",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOPLEFT"},
+                            {point = "BOTTOMRIGHT"},
+                        },
+                    },
+                }
             },
         },
     },

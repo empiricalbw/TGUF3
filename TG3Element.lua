@@ -22,6 +22,10 @@ function TGUF3.Element.MakeElems(unitFrame, parent, elements)
         print("Instantiating "..e.class.name)
         local elem = TGUF3.Element.MakeElem(unitFrame, parent, e)
         table.insert(parent.children, elem)
+
+        if e.elements then
+            TGUF3.Element.MakeElems(unitFrame, elem, e.elements)
+        end
     end
 end
 
