@@ -9,9 +9,10 @@
 ## SavedVariables:
 
 TG3UnitFrame.xml
+TG3Texture.xml
 
 TGUF3.lua
-element.lua
-texture.lua
+TG3Element.lua
+TG3Texture.lua
 TG3UnitFrame.lua
 DUFLayout.lua

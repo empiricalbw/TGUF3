@@ -1,5 +1,6 @@
-TG3UnitFrameMixin = {}
+--TGUF3.UnitFrame = {}
 TGUF3.UnitFrame = {}
+TG3UnitFrameMixin = TGUF3.UnitFrame
 
 local UnitFrames = {}
 
@@ -10,7 +11,7 @@ function TGUF3.UnitFrame:New(layout)
     return f
 end
 
-function TG3UnitFrameMixin:Init(layout)
+function TGUF3.UnitFrame:Init(layout)
     -- Create the TGUnit.
     self.unit = TGUnit:new(layout.unit_id)
 
@@ -31,7 +32,7 @@ function TG3UnitFrameMixin:Init(layout)
         "MENU")
 
     -- Instantiate elements.
-    TG3Element.MakeElems(self, self, layout.elements)
+    TGUF3.Element.MakeElems(self, self, layout.elements)
 
     -- Remember us.
     UnitFrames[self.unit.id] = self
@@ -40,7 +41,7 @@ function TG3UnitFrameMixin:Init(layout)
     self.unit:AddListener(self)
 end
 
-function TG3UnitFrameMixin:TG3SetPoint(anchor)
+function TGUF3.UnitFrame:TG3SetPoint(anchor)
     local point         = anchor.point
     local relativeFrame = UnitFrames[anchor.relativeUnit] or UIParent
     local relativePoint = anchor.relativePoint or point
@@ -49,12 +50,12 @@ function TG3UnitFrameMixin:TG3SetPoint(anchor)
     self:SetPoint(point, relativeFrame, relativePoint, dx, dy)
 end
 
-function TG3UnitFrameMixin:MenuFunc()
+function TGUF3.UnitFrame:MenuFunc()
     -- Called when we get a right-click on the specified secure unit button.
     ToggleDropDownMenu(1, nil, self.ddFrame, "cursor", 20, 0)
 end
 
-function TG3UnitFrameMixin:DropDown_Initialize()
+function TGUF3.UnitFrame:DropDown_Initialize()
     local unit = self.unit.id
     local menu
     local name
@@ -74,16 +75,16 @@ function TG3UnitFrameMixin:DropDown_Initialize()
             menu = "PLAYER"
         end
     else
-        menu = "TARGET"
+        menu = "RAID_TARGET_ICON"
         name = RAID_TARGET_ICON
     end
 
     UnitPopup_ShowMenu(self.ddFrame, menu, unit, name, id)
 end
 
-function TG3UnitFrameMixin:UPDATE_EXISTS(unit)
+function TGUF3.UnitFrame:UPDATE_EXISTS(unit)
     if unit.exists then
-        selfShow()
+        self:Show()
     else
         self:Hide()
     end
