@@ -81,11 +81,3 @@ function TGUF3.UnitFrame:DropDown_Initialize()
 
     UnitPopup_ShowMenu(self.ddFrame, menu, unit, name, id)
 end
-
-function TGUF3.UnitFrame:UPDATE_EXISTS(unit)
-    if unit.exists then
-        self:Show()
-    else
-        self:Hide()
-    end
-end
