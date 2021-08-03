@@ -1,6 +1,6 @@
 TGUF3.Backdrop = {
-    name = "TGUF3.Backdrop",
-    xml  = "TG3BackdropTemplate",
+    _name = "TGUF3.Backdrop",
+    _xml  = "TG3BackdropTemplate",
 }
 TG3BackdropMixin = TGUF3.Backdrop
 

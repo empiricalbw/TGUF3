@@ -2,7 +2,8 @@ TGUF3.Element = {}
 TG3ElementMixin = TGUF3.Element
 
 function TGUF3.Element.MakeElem(unitFrame, parent, elem)
-    local f = CreateFrame("Frame", nil, parent, elem.class.xml)
+    local f = CreateFrame(elem.class._ftype or "Frame", nil, parent,
+                          elem.class._xml)
     TGUF3.Element.SetAnchors(f, elem.anchors)
     if elem.width then
         f:SetWidth(elem.width)
@@ -13,13 +14,14 @@ function TGUF3.Element.MakeElem(unitFrame, parent, elem)
 
     f.unitFrame = unitFrame
     f:Init(elem)
+    unitFrame.unit:AddListener(f)
     return f
 end
 
 function TGUF3.Element.MakeElems(unitFrame, parent, elements)
     parent.children = {}
     for _, e in ipairs(elements) do
-        print("Instantiating "..e.class.name)
+        print("Instantiating "..e.class._name)
         local elem = TGUF3.Element.MakeElem(unitFrame, parent, e)
         table.insert(parent.children, elem)
 

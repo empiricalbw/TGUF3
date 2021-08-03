@@ -1,6 +1,6 @@
 TGUF3.String = {
-    name = "TGUF3.String",
-    xml  = "TG3StringTemplate",
+    _name = "TGUF3.String",
+    _xml  = "TG3StringTemplate",
 }
 TG3StringMixin = TGUF3.String
 
@@ -19,8 +19,6 @@ function TGUF3.String:Init(elem)
     self.String:SetJustifyV(alignV)
 
     self.text = elem.text
-
-    self.unitFrame.unit:AddListener(self)
 end
 
 function TGUF3.String:UPDATE_NAME(unit)

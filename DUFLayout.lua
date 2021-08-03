@@ -24,18 +24,29 @@ DUF_LAYOUT = {
 
                 elements = {
                     {
-                        class    = TGUF3.String,
-                        text     = "$nm",
-                        alignH   = "CENTER",
-                        font     = "DUF_Font1.ttf",
-                        anchors  = {
-                            {point = "TOPLEFT"},
-                            {point = "BOTTOMRIGHT"},
+                        class   = TGUF3.HealthBar,
+                        color   = {0.271, 0.655, 0.529, 1},
+                        anchors = {
+                            {point = "TOPLEFT", dx=5, dy=-5},
+                            {point = "BOTTOMRIGHT", dx=-5, dy=5},
                         },
+
+                        elements = {
+                            {
+                                class    = TGUF3.String,
+                                text     = "$nm",
+                                alignH   = "CENTER",
+                                font     = "DUF_Font1.ttf",
+                                anchors  = {
+                                    {point = "TOPLEFT"},
+                                    {point = "BOTTOMRIGHT"},
+                                },
+                            },
+                        }
                     },
                 }
             },
-        },
+        }
     },
     {
         unit_id = "target",
@@ -62,17 +73,28 @@ DUF_LAYOUT = {
 
                 elements = {
                     {
-                        class    = TGUF3.String,
-                        text     = "$nm",
-                        alignH   = "CENTER",
-                        font     = "DUF_Font1.ttf",
-                        anchors  = {
-                            {point = "TOPLEFT"},
-                            {point = "BOTTOMRIGHT"},
+                        class   = TGUF3.HealthBar,
+                        color   = {0.271, 0.655, 0.529, 1},
+                        anchors = {
+                            {point = "TOPLEFT", dx=5, dy=-5},
+                            {point = "BOTTOMRIGHT", dx=-5, dy=5},
                         },
+
+                        elements = {
+                            {
+                                class    = TGUF3.String,
+                                text     = "$nm",
+                                alignH   = "CENTER",
+                                font     = "DUF_Font1.ttf",
+                                anchors  = {
+                                    {point = "TOPLEFT"},
+                                    {point = "BOTTOMRIGHT"},
+                                },
+                            },
+                        }
                     },
                 }
             },
-        },
+        }
     },
 }
