@@ -5,19 +5,22 @@ local DUF_GENERIC_ELEMENTS = {
         edgeSize  = 20,
         edgeColor = {1, 1, 1, 1},
         bgColor   = {0, 0, 0, 1},
-        insets    = {left=5, right=5, top=5, bottom=5},
+        insets    = {left = 5, right = 5, top = 5, bottom = 5},
 
         elements = {
+            -- Health bar.
             {
                 class   = TGUF3.HealthBar,
+                key     = "HealthBar",
                 color   = {0.271, 0.655, 0.529, 1},
                 anchors = {
-                    {point = "TOPLEFT", dx=5, dy=-5},
-                    {point = "BOTTOMRIGHT", dx=-5, dy=5},
+                    {point = "TOPLEFT", dx = 5, dy = -5},
+                    {point = "RIGHT", dx = -5},
+                    {point = "BOTTOM", relativePoint = "CENTER"},
                 },
 
                 elements = {
-                    -- 1: Name string.
+                    -- Name string.
                     {
                         class    = TGUF3.String,
                         key      = "Name",
@@ -26,13 +29,12 @@ local DUF_GENERIC_ELEMENTS = {
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", dx=5, dy=-3},
-                            {point = "BOTTOM", relativePoint = "CENTER"},
-                            {point = "RIGHT", dx=-30},
+                            {point = "TOPLEFT", dx = 5, dy = -2},
+                            {point = "BOTTOMRIGHT", dx = -30},
                         },
                     },
 
-                    -- 2: Health string.
+                    -- Health string.
                     {
                         class    = TGUF3.String,
                         text     = "$hc/$hm",
@@ -40,28 +42,38 @@ local DUF_GENERIC_ELEMENTS = {
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", relativeKey="Name"},
-                            {point = "RIGHT", dx=-5},
-                            {point = "BOTTOM", relativePoint = "CENTER"},
+                            {point = "TOPLEFT", relativeKey = "Name"},
+                            {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
+                },
+            },
 
-                    -- 3: Class/level string.
+            -- Power bar.
+            {
+                class    = TGUF3.PowerBar,
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "HealthBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "BOTTOMRIGHT", dx = -5, dy = 5},
+                },
+
+                elements = {
+                    -- Class/level string.
                     {
                         class    = TGUF3.String,
                         key      = "ClassLevel",
                         text     = "$lv $ccl",
                         alignH   = "LEFT",
-                        alignV   = "BOTTOM",
+                        alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "BOTTOMLEFT", dx=5, dy=5},
-                            {point = "TOP", relativePoint = "CENTER"},
-                            {point = "RIGHT", dx=-30},
+                            {point = "TOPLEFT", dx = 5, dy = -2},
+                            {point = "BOTTOMRIGHT", dx = -30},
                         },
                     },
 
-                    -- 4: Power string.
+                    -- Power string.
                     {
                         class    = TGUF3.String,
                         text     = "$pc/$pm",
@@ -69,8 +81,8 @@ local DUF_GENERIC_ELEMENTS = {
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", relativeKey="ClassLevel"},
-                            {point = "BOTTOMRIGHT", dx=-5, dy=5},
+                            {point = "TOPLEFT", relativeKey = "ClassLevel"},
+                            {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
                 }
@@ -97,9 +109,10 @@ DUF_LAYOUT = {
         width   = 200,
         height  = 40,
         anchor  = {
-            point        = "TOPLEFT",
-            relativeUnit = "player",
-            dy           = -45,
+            point         = "TOPLEFT",
+            relativePoint = "BOTTOMLEFT",
+            relativeUnit  = "player",
+            dy            = -5,
         },
 
         elements = DUF_GENERIC_ELEMENTS,
