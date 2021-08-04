@@ -4,6 +4,8 @@ TG3ElementMixin = TGUF3.Element
 function TGUF3.Element.MakeElem(unitFrame, parent, elem)
     local f = CreateFrame(elem.class._ftype or "Frame", nil, parent,
                           elem.class._xml)
+    f.unitFrame = unitFrame
+
     TGUF3.Element.SetAnchors(f, elem.anchors)
     if elem.width then
         f:SetWidth(elem.width)
@@ -12,7 +14,6 @@ function TGUF3.Element.MakeElem(unitFrame, parent, elem)
         f:SetHeight(elem.height)
     end
 
-    f.unitFrame = unitFrame
     f:Init(elem)
     unitFrame.unit:AddListener(f)
     return f
@@ -25,6 +26,10 @@ function TGUF3.Element.MakeElems(unitFrame, parent, elements)
         local elem = TGUF3.Element.MakeElem(unitFrame, parent, e)
         table.insert(parent.children, elem)
 
+        if e.key then
+            unitFrame.keyFrames[e.key] = elem
+        end
+
         if e.elements then
             TGUF3.Element.MakeElems(unitFrame, elem, e.elements)
         end
@@ -34,7 +39,8 @@ end
 function TGUF3.Element.SetAnchor(f, anchor)
     local parent        = f:GetParent()
     local point         = anchor.point
-    local relativeFrame = parent.children[anchor.relativeUnit] or parent
+    local relativeFrame = f.unitFrame.keyFrames[anchor.relativeKey] or
+                          parent
     local relativePoint = anchor.relativePoint or point
     local dx            = anchor.dx or 0
     local dy            = anchor.dy or 0
@@ -42,7 +48,11 @@ function TGUF3.Element.SetAnchor(f, anchor)
 end
 
 function TGUF3.Element.SetAnchors(f, anchors)
-    for _, anchor in ipairs(anchors) do
-        TGUF3.Element.SetAnchor(f, anchor)
+    if anchors and #anchors > 0 then
+        for _, anchor in ipairs(anchors) do
+            TGUF3.Element.SetAnchor(f, anchor)
+        end
+    else
+        f:SetAllPoints(f:GetParent())
     end
 end

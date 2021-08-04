@@ -31,6 +31,9 @@ function TGUF3.UnitFrame:Init(layout)
         function() self:DropDown_Initialize() end,
         "MENU")
 
+    -- Table of key frames.
+    self.keyFrames = {}
+
     -- Instantiate elements.
     TGUF3.Element.MakeElems(self, self, layout.elements)
 
