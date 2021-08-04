@@ -10,18 +10,20 @@
 
 TG3UnitFrame.xml
 TG3Texture.xml
-TG3Backdrop.xml
+TG3Border.xml
 TG3String.xml
 TG3HealthBar.xml
 TG3PowerBar.xml
+TG3Model.xml
 
 TGUF3.lua
 TG3Element.lua
 TG3Texture.lua
-TG3Backdrop.lua
+TG3Border.lua
 TG3String.lua
 TG3HealthBar.lua
 TG3PowerBar.lua
+TG3Model.lua
 
 TG3UnitFrame.lua
 DUFLayout.lua

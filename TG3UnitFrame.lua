@@ -37,6 +37,19 @@ function TGUF3.UnitFrame:Init(layout)
     -- Instantiate elements.
     TGUF3.Element.MakeElems(self, self, layout.elements)
 
+    --[[
+    -- Move the frame upwards.
+    self:SetFrameStrata("MEDIUM")
+    for _, f in ipairs(self.children) do
+        f:SetFrameStrata("LOW")
+    end
+    --self:SetFrameLevel(1000)
+    print(self:GetFrameStrata(), self:GetFrameLevel())
+    print(self.children[1]:GetFrameStrata(), self.children[1]:GetFrameLevel())
+    print(self.children[1].children[1]:GetFrameStrata(),
+          self.children[1].children[1]:GetFrameLevel())
+          ]]
+
     -- Remember us.
     UnitFrames[self.unit.id] = self
 

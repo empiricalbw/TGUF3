@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
-    <StatusBar name="TG3PowerBarTemplate" mixin="TG3PowerBarMixin" virtual="true">
+    <Frame name="TG3BorderTemplate" frameStrata="MEDIUM" mixin="TG3BorderMixin" inherits="BackdropTemplate" virtual="true">
         <Layers>
             <Layer level="BACKGROUND">
-                <Texture setAllPoints="true">
-                    <Color r="0" g="0" b="0" a="0.5"/>
-                </Texture>
+                <Texture parentKey="Texture" setAllPoints="true" hidden="true"/>
             </Layer>
         </Layers>
-    </StatusBar>
+    </Frame>
 </Ui>

@@ -5,5 +5,12 @@ TGUF3.Texture = {
 TG3TextureMixin = TGUF3.Texture
 
 function TGUF3.Texture:Init(elem)
-    self.Texture:SetTexture(elem.id)
+    if elem.id then
+        self.Texture:SetTexture(elem.id)
+        if elem.color then
+            self.Texture:SetVertexColor(unpack(elem.color))
+        end
+    elseif elem.color then
+        self.Texture:SetColorTexture(unpack(elem.color))
+    end
 end
