@@ -4,13 +4,87 @@ TGUF3.String = {
 }
 TG3StringMixin = TGUF3.String
 
+local substitutionTable = {
+    -- Name.
+    ["$nm"] = {
+        flag = TGU.FLAGS.NAME,
+        func = function(unit)
+            return unit.name
+        end
+    },
+
+    -- Current health.
+    ["$hc"] = {
+        flag = TGU.FLAGS.HEALTH,
+        func = function(unit)
+            return unit.health.current
+        end
+    },
+
+    -- Maximum health.
+    ["$hm"] = {
+        flag = TGU.FLAGS.HEALTH,
+        func = function(unit)
+            return unit.health.max
+        end
+    },
+
+    -- Current power (mana/range/energy/etc.)
+    ["$pc"] = {
+        flag = TGU.FLAGS.POWER,
+        func = function(unit)
+            return unit.power.current
+        end
+    },
+
+    -- Maximum power.
+    ["$pm"] = {
+        flag = TGU.FLAGS.POWER,
+        func = function(unit)
+            return unit.power.max
+        end
+    },
+
+    -- Level.
+    ["$lv"] = {
+        flag = TGU.FLAGS.LEVEL,
+        func = function(unit)
+            if unit.level == -1 then
+                return "??"
+            end
+            return unit.level
+        end
+    },
+
+    -- Class.
+    ["$cl"] = {
+        flag = TGU.FLAGS.CLASS,
+        func = function(unit)
+            return unit.class.localized
+        end
+    },
+
+    -- Creature type if NPC or class if PC.
+    ["$ccl"] = {
+        flag = bit.bor(TGU.FLAGS.CLASS,
+                       TGU.FLAGS.CREATURETYPE,
+                       TGU.FLAGS.NPC),
+        func = function(unit)
+            if unit.npc then
+                return unit.creatureType
+            end
+            return unit.class.localized
+        end
+    },
+}
+
 function TGUF3.String:Init(elem)
     local alignH   = elem.alignH or "LEFT"
     local alignV   = elem.alignV or "MIDDLE"
     local font     = elem.font or "Fonts/FRIZQT__.TTF"
     local fontSize = elem.fontSize or 10
     local color    = elem.color or {1, 1, 1, 1}
-    if not string.find(font, "/") then
+    if not font:find("/") then
         font = "Interface/AddOns/TGUF_2/Fonts/"..font
     end
     self.String:SetFont(font, fontSize)
@@ -18,15 +92,25 @@ function TGUF3.String:Init(elem)
     self.String:SetJustifyH(alignH)
     self.String:SetJustifyV(alignV)
 
-    self.text = elem.text
+    self.text          = elem.text
+    self.substitutions = {}
+    self.tguMask       = 0
+    for k, v in pairs(substitutionTable) do
+        if self.text:find(k) then
+            self.tguMask          = bit.bor(self.tguMask, v.flag)
+            self.substitutions[k] = v
+        end
+    end
 end
 
-function TGUF3.String:UPDATE_NAME(unit)
+function TGUF3.String:UPDATE_BITMASK(unit, flags)
     if not unit.exists then
         return
     end
 
     local text = self.text
-    text = string.gsub(text, "$nm", self.unitFrame.unit.name)
+    for k, v in pairs(self.substitutions) do
+        text = text:gsub(k, v.func(unit))
+    end
     self.String:SetText(text)
 end
