@@ -14,6 +14,7 @@ TG3Border.xml
 TG3String.xml
 TG3HealthBar.xml
 TG3PowerBar.xml
+TG3ConTexture.xml
 TG3Model.xml
 
 TGUF3.lua
@@ -23,6 +24,7 @@ TG3Border.lua
 TG3String.lua
 TG3HealthBar.lua
 TG3PowerBar.lua
+TG3ConTexture.lua
 TG3Model.lua
 
 TG3UnitFrame.lua

@@ -1,12 +1,4 @@
 <?xml version="1.0"?>
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
-    <PlayerModel name="TG3ModelTemplate" toplevel="true" mixin="TG3ModelMixin" virtual="true">
-        <Layers>
-            <Layer level="BACKGROUND">
-                <Texture parentKey="Background" setAllPoints="true">
-                    <Color r="0" g="0" b="0" a="0.5"/>
-                </Texture>
-            </Layer>
-        </Layers>
-    </PlayerModel>
+    <PlayerModel name="TG3ModelTemplate" mixin="TG3ModelMixin" virtual="true"/>
 </Ui>

@@ -1,6 +1,7 @@
 local DUF_GENERIC_FRAME_ELEMENTS = {
     {
         class     = TGUF3.Border,
+        strata    = "MEDIUM",
         edgeFile  = "Interface/Tooltips/UI-Tooltip-Border",
         edgeSize  = 20,
         edgeColor = {1, 1, 1, 1},
@@ -97,9 +98,10 @@ local DUF_GENERIC_FRAME_ELEMENTS = {
     },
 }
 
-local DUF_TARGET_FRAME_ELEMENTS = {
+local DUF_PARTY_FRAME_ELEMENTS = {
     {
         class     = TGUF3.Border,
+        strata    = "MEDIUM",
         edgeFile  = "Interface/Tooltips/UI-Tooltip-Border",
         edgeSize  = 20,
         edgeColor = {1, 1, 1, 1},
@@ -113,14 +115,140 @@ local DUF_TARGET_FRAME_ELEMENTS = {
         },
 
         elements = {
-            -- Model
+            -- Model.
             {
-                class = TGUF3.Model,
-                key   = "Model",
-                width = 30,
+                class   = TGUF3.Model,
+                strata  = "MEDIUM",
+                key     = "Model",
+                camera  = "BODY",
+                width   = 50,
+                anchors = {
+                    {point = "LEFT", dx = -10},
+                    {point = "TOP", dy = 10},
+                    {point = "BOTTOM", dy = 10},
+                },
+            },
+
+            -- Health bar.
+            {
+                class   = TGUF3.HealthBar,
+                key     = "HealthBar",
+                color   = {0.271, 0.655, 0.529, 1},
+                anchors = {
+                    {point = "TOPLEFT"},
+                    {point = "RIGHT"},
+                    {point = "BOTTOM", relativePoint = "CENTER"},
+                },
+
+                elements = {
+                    -- Name string.
+                    {
+                        class    = TGUF3.String,
+                        key      = "Name",
+                        text     = "$nm",
+                        alignH   = "LEFT",
+                        alignV   = "TOP",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOP", dy = -2},
+                            {point = "LEFT", relativeKey = "Model",
+                             relativePoint = "RIGHT", dx = 5},
+                            {point = "BOTTOMRIGHT", dx = -30},
+                        },
+                    },
+
+                    -- Health string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "$hc/$hm",
+                        alignH   = "RIGHT",
+                        alignV   = "TOP",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOPLEFT", relativeKey = "Name"},
+                            {point = "BOTTOMRIGHT", dx = -5},
+                        },
+                    },
+                },
+            },
+
+            -- Power bar.
+            {
+                class    = TGUF3.PowerBar,
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "HealthBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "BOTTOMRIGHT"},
+                },
+
+                elements = {
+                    -- Class/level string.
+                    {
+                        class    = TGUF3.String,
+                        key      = "ClassLevel",
+                        text     = "$lv $ccl",
+                        alignH   = "LEFT",
+                        alignV   = "TOP",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOP", dy = -2},
+                            {point = "BOTTOM"},
+                            {point = "LEFT", relativeKey = "Name"},
+                            {point = "RIGHT", relativeKey = "Name"},
+                        },
+                    },
+
+                    -- Power string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "$pc/$pm",
+                        alignH   = "RIGHT",
+                        alignV   = "TOP",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOPLEFT", relativeKey = "ClassLevel"},
+                            {point = "BOTTOMRIGHT", dx = -5},
+                        },
+                    },
+                }
+            },
+        }
+    },
+}
+
+local DUF_TARGET_FRAME_ELEMENTS = {
+    {
+        class     = TGUF3.Border,
+        strata    = "MEDIUM",
+        edgeFile  = "Interface/Tooltips/UI-Tooltip-Border",
+        edgeSize  = 20,
+        edgeColor = {1, 1, 1, 1},
+    },
+    {
+        class = TGUF3.Texture,
+        color = {0, 0, 0, 1},
+        anchors = {
+            {point = "TOPLEFT", dx = 5, dy = -5},
+            {point = "BOTTOMRIGHT", dx = -5, dy = 5},
+        },
+
+        elements = {
+            -- Consideration texture.
+            {
+                class   = TGUF3.ConTexture,
+                width   = 40,
                 anchors = {
                     {point = "TOPLEFT"},
                     {point = "BOTTOM"},
+                },
+
+                elements = {
+                    -- Model.
+                    {
+                        class   = TGUF3.Model,
+                        key     = "Model",
+                        camera  = "HEAD",
+                    },
                 },
             },
 
@@ -219,7 +347,7 @@ DUF_LAYOUT = {
             dy    = -300,
         },
 
-        elements = DUF_GENERIC_FRAME_ELEMENTS,
+        elements = DUF_PARTY_FRAME_ELEMENTS,
     },
     {
         unit_id = "target",

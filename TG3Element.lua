@@ -6,6 +6,9 @@ function TGUF3.Element.MakeElem(unitFrame, parent, elem)
                           elem.class._xml)
     f.unitFrame = unitFrame
 
+    if elem.strata then
+        f:SetFrameStrata(elem.strata)
+    end
     TGUF3.Element.SetAnchors(f, elem.anchors)
     if elem.width then
         f:SetWidth(elem.width)
@@ -39,6 +42,9 @@ end
 function TGUF3.Element.SetAnchor(f, anchor)
     local parent        = f:GetParent()
     local point         = anchor.point
+    if anchor.relativeKey then
+        assert(f.unitFrame.keyFrames[anchor.relativeKey] ~= nil)
+    end
     local relativeFrame = f.unitFrame.keyFrames[anchor.relativeKey] or
                           parent
     local relativePoint = anchor.relativePoint or point
