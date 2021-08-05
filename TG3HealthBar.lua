@@ -1,3 +1,27 @@
+--[[
+--  Status bar that tracks the health of the unit.  The status bar can
+--  optionally change color dynamically based on the health of the unit.  The
+--  color is linearly interpolated across the upper two regions in the health
+--  bar and kept at a solid color for the bottom region:
+--
+--      +----------+------------------+-----------------+
+--      | lowColor | low to highColor | high to "color" |
+--      +----------+------------------+-----------------+
+--              lowPercent         highPercent
+--
+--  Optional attributes:
+--
+--      texture     - texture used in the healthbar
+--      colorize    - whether or not to dynamically change color based on
+--                    percent health remaining (boolean)
+--      color       - color to use when not colorizing; color to use for top end
+--                    of high range, i.e. max health ({r, g, b, a} color)
+--      highColor   - color used at highPercent breakpoint
+--      lowColor    - color used at lowPercent breakpoint
+--      tappedColor - color to use when targetting a "tapped" mob
+--      highPercent - high breakpoint percentage (0 - 100)
+--      lowPercent  - low breakpoint percentage (0 - 100)
+--]]
 TGUF3.HealthBar = {
     _name  = "TGUF3.HealthBar",
     _xml   = "TG3HealthBarTemplate",
