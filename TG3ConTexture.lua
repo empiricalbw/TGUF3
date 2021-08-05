@@ -41,5 +41,5 @@ function TGUF3.ConTexture:UPDATE_BITMASK(unit, flags)
         end
     end
 
-    self.Background:SetColorTexture(unpack(color))
+    self.Texture:SetColorTexture(unpack(color))
 end

@@ -15,6 +15,7 @@ TG3String.xml
 TG3HealthBar.xml
 TG3PowerBar.xml
 TG3ConTexture.xml
+TG3CombatTexture.xml
 TG3Model.xml
 
 TGUF3.lua
@@ -25,7 +26,12 @@ TG3String.lua
 TG3HealthBar.lua
 TG3PowerBar.lua
 TG3ConTexture.lua
+TG3CombatTexture.lua
 TG3Model.lua
 
 TG3UnitFrame.lua
+
+DUFFrames.lua
+DUFTargetFrame.lua
+DUFPartyFrame.lua
 DUFLayout.lua

@@ -18,7 +18,7 @@ function TGUF3.ADDON_LOADED(addOnName)
         return
     end
 
-    for i, layout in ipairs(DUF_LAYOUT) do
+    for i, layout in ipairs(DUF_FRAMES.Layout) do
         TGUF3.UnitFrame:New(layout)
     end
 
