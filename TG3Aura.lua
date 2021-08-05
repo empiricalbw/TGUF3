@@ -36,12 +36,8 @@ function TG3Aura:UpdateAura(unit, aura)
     end
 end
 
-function TG3Aura:OnEnter()
-    print("OnEnter: "..self.unitFrame.unit.id)
-end
-
 function TG3Aura:OnLeave()
-    print("OnLeave: "..self.unitFrame.unit.id)
+    GameTooltip:Hide()
 end
 
 TGUF3.Buff = {
@@ -59,6 +55,11 @@ function TGUF3.Buff:UPDATE_BUFFS(unit)
     self:UpdateAura(unit, unit.buffs[self.index])
 end
 
+function TGUF3.Buff:OnEnter()
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT", 0, 0)
+    GameTooltip:SetUnitBuff(self.unitFrame.unit.id, self.index)
+end
+
 TGUF3.Debuff = {
     _name = "TGUF3.Debuff",
     _xml  = "TG3DebuffTemplate",
@@ -72,4 +73,9 @@ end
 
 function TGUF3.Debuff:UPDATE_DEBUFFS(unit)
     self:UpdateAura(unit, unit.debuffs[self.index])
+end
+
+function TGUF3.Debuff:OnEnter()
+    GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT", 0, 0)
+    GameTooltip:SetUnitDebuff(self.unitFrame.unit.id, self.index)
 end
