@@ -5,7 +5,7 @@
 ## DefaultState: enabled
 ## Notes: Thor's Godly unit frames
 ## URL: 
-## Dependencies: TGEventManager TGLog TGUnit
+## Dependencies: TGEventManager TGUnit
 ## SavedVariables:
 
 TG3UnitFrame.xml

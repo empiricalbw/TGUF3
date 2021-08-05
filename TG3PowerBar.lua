@@ -1,3 +1,13 @@
+--[[
+--  Status bar that tracks the power (mana, rage, energy, etc.) of the unit.
+--
+--  Optional attributes:
+--
+--      texture     - texture used in the status bar
+--      manaColor   - color to use for mana
+--      rageColor   - color to use for rage
+--      energyColor - color to use for energy
+--]]
 TGUF3.PowerBar = {
     _name  = "TGUF3.PowerBar",
     _xml   = "TG3PowerBarTemplate",

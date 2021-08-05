@@ -1,3 +1,13 @@
+--[[
+--  Frame that justs supplies a static texture.
+--
+--  Optional attributes:
+--
+--      id    - texture id or path
+--      color - texture color if id specified, otherwise solid color
+--
+--  At least one of id or color (possibly both) should be supplied.
+--]]
 TGUF3.Texture = {
     _name = "TGUF3.Texture",
     _xml  = "TG3TextureTemplate",

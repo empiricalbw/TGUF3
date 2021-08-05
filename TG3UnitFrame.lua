@@ -1,8 +1,5 @@
---TGUF3.UnitFrame = {}
 TGUF3.UnitFrame = {}
 TG3UnitFrameMixin = TGUF3.UnitFrame
-
-local UnitFrames = {}
 
 function TGUF3.UnitFrame:New(layout)
     -- Create the UnitFrame object.
@@ -37,21 +34,8 @@ function TGUF3.UnitFrame:Init(layout)
     -- Instantiate elements.
     TGUF3.Element.MakeElems(self, self, layout.elements)
 
-    --[[
-    -- Move the frame upwards.
-    self:SetFrameStrata("MEDIUM")
-    for _, f in ipairs(self.children) do
-        f:SetFrameStrata("LOW")
-    end
-    --self:SetFrameLevel(1000)
-    print(self:GetFrameStrata(), self:GetFrameLevel())
-    print(self.children[1]:GetFrameStrata(), self.children[1]:GetFrameLevel())
-    print(self.children[1].children[1]:GetFrameStrata(),
-          self.children[1].children[1]:GetFrameLevel())
-          ]]
-
-    -- Remember us.
-    UnitFrames[self.unit.id] = self
+    -- Record this unit frame.
+    TGUF3.Frames[self.unit.id] = self
 
     -- Update the unit frame.
     self.unit:AddListener(self)
@@ -59,7 +43,7 @@ end
 
 function TGUF3.UnitFrame:TG3SetPoint(anchor)
     local point         = anchor.point
-    local relativeFrame = UnitFrames[anchor.relativeUnit] or UIParent
+    local relativeFrame = TGUF3.Frames[anchor.relativeUnit] or UIParent
     local relativePoint = anchor.relativePoint or point
     local dx            = anchor.dx or 0
     local dy            = anchor.dy or 0

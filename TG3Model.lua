@@ -1,3 +1,11 @@
+--[[
+--  Frame that displays a 3D model of the unit.
+--
+--  Optional attributes:
+--
+--      camera - camera angle to use (one of ["HEAD", "BODY"], defaults to
+--               "HEAD")
+--]]
 TGUF3.Model = {
     _name  = "TGUF3.Model",
     _xml   = "TG3ModelTemplate",
