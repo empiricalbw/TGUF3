@@ -8,7 +8,7 @@ DUF_FRAMES.Generic = {
     },
     {
         class = TGUF3.Texture,
-        color = {0, 0, 0, 1},
+        color = {0, 0, 0, 0},
         anchors = {
             {point = "TOPLEFT", dx = 5, dy = -5},
             {point = "BOTTOMRIGHT", dx = -5, dy = 5},
@@ -27,6 +27,16 @@ DUF_FRAMES.Generic = {
                 },
 
                 elements = {
+                    -- Combat icon.
+                    {
+                        class   = TGUF3.CombatTexture,
+                        width   = 20,
+                        height  = 20,
+                        anchors = {
+                            {point = "LEFT", dx = 5},
+                        }
+                    },
+
                     -- Name string.
                     {
                         class    = TGUF3.String,
@@ -36,7 +46,7 @@ DUF_FRAMES.Generic = {
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", dx = 5, dy = -2},
+                            {point = "TOPLEFT", dx = 25, dy = -2},
                             {point = "BOTTOMRIGHT", dx = -30},
                         },
                     },
@@ -58,7 +68,8 @@ DUF_FRAMES.Generic = {
 
             -- Power bar.
             {
-                class    = TGUF3.PowerBar,
+                class   = TGUF3.PowerBar,
+                key     = "PowerBar",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
                      relativePoint = "BOTTOMLEFT"},
@@ -75,8 +86,10 @@ DUF_FRAMES.Generic = {
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", dx = 5, dy = -2},
-                            {point = "BOTTOMRIGHT", dx = -30},
+                            {point = "TOP", dy = -2},
+                            {point = "BOTTOM"},
+                            {point = "LEFT", relativeKey = "Name"},
+                            {point = "RIGHT", relativeKey = "Name"},
                         },
                     },
 
@@ -92,6 +105,30 @@ DUF_FRAMES.Generic = {
                             {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
+                }
+            },
+
+            -- Buffs.
+            {
+                class   = TGUF3.BuffList,
+                width   = 16,
+                height  = 16,
+                --index   = 1,
+                anchors = {
+                    {point = "BOTTOMLEFT", relativeKey = "HealthBar",
+                     relativePoint = "TOPLEFT", dy = 3},
+                }
+            },
+
+            -- Debuffs.
+            {
+                class   = TGUF3.DebuffList,
+                width   = 16,
+                height  = 16,
+                --index   = 1,
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT", dy = -3},
                 }
             },
         }

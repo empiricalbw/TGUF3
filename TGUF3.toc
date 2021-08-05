@@ -43,4 +43,5 @@ DUFFrames.lua
 DUFPlayerFrame.lua
 DUFTargetFrame.lua
 DUFPartyFrame.lua
+DUFGenericFrame.lua
 DUFLayout.lua

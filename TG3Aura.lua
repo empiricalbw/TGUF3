@@ -1,12 +1,14 @@
 local TG3Aura = {}
 
-function TG3Aura:Init(elem)
+function TG3Aura:_Init(elem)
     local font      = elem.font or "Fonts/ARIALN.TTF"
     local fontSize  = elem.fontSize or 10
     local fontFlags = elem.fontFlags or "OUTLINE, MONOCHROME"
     self.index      = elem.index
 
     self.Count:SetFont(font, fontSize, fontFlags)
+    self:SetScript("OnEnter", self.OnEnter)
+    self:SetScript("OnLeave", self.OnLeave)
 end
 
 function TG3Aura:UpdateAura(unit, aura)
@@ -34,6 +36,14 @@ function TG3Aura:UpdateAura(unit, aura)
     end
 end
 
+function TG3Aura:OnEnter()
+    print("OnEnter: "..self.unitFrame.unit.id)
+end
+
+function TG3Aura:OnLeave()
+    print("OnLeave: "..self.unitFrame.unit.id)
+end
+
 TGUF3.Buff = {
     _name = "TGUF3.Buff",
     _xml  = "TG3BuffTemplate",
@@ -41,11 +51,12 @@ TGUF3.Buff = {
 TG3BuffMixin = TGUF3.Buff
 
 function TGUF3.Buff:Init(elem)
-    TG3Aura.Init(self, elem)
+    Mixin(self, TG3Aura)
+    self:_Init(elem)
 end
 
 function TGUF3.Buff:UPDATE_BUFFS(unit)
-    TG3Aura.UpdateAura(self, unit, unit.buffs[self.index])
+    self:UpdateAura(unit, unit.buffs[self.index])
 end
 
 TGUF3.Debuff = {
@@ -55,9 +66,10 @@ TGUF3.Debuff = {
 TG3DebuffMixin = TGUF3.Debuff
 
 function TGUF3.Debuff:Init(elem)
-    TG3Aura.Init(self, elem)
+    Mixin(self, TG3Aura)
+    self:_Init(elem)
 end
 
 function TGUF3.Debuff:UPDATE_DEBUFFS(unit)
-    TG3Aura.UpdateAura(self, unit, unit.debuffs[self.index])
+    self:UpdateAura(unit, unit.debuffs[self.index])
 end

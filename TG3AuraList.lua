@@ -20,6 +20,7 @@ function TGUF3.AuraList:Init(elem, xml)
         else
             f:SetPoint("TOPLEFT", self.Frames[i-1], "TOPRIGHT", dx, dy)
         end
+        f.unitFrame = self.unitFrame
         f:Init({index = i})
         self.unitFrame.unit:AddListener(f)
         self.Frames[i] = f
