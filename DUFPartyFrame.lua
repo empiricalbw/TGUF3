@@ -8,13 +8,35 @@ DUF_FRAMES.Party = {
     },
     {
         class = TGUF3.Texture,
-        color = {0, 0, 0, 1},
+        color = {0, 0, 0, 0},
         anchors = {
             {point = "TOPLEFT", dx = 5, dy = -5},
             {point = "BOTTOMRIGHT", dx = -5, dy = 5},
         },
 
         elements = {
+            -- Leader icon.
+            {
+                class   = TGUF3.LeaderTexture,
+                width   = 12,
+                height  = 12,
+                anchors = {
+                    {point = "BOTTOMLEFT", relativePoint = "TOPLEFT",
+                     dx = 0, dy = 2},
+                }
+            },
+
+            -- Master looter icon.
+            {
+                class   = TGUF3.LootMasterTexture,
+                width   = 12,
+                height  = 12,
+                anchors = {
+                    {point = "BOTTOMLEFT", relativePoint = "TOPLEFT",
+                     dx = 20, dy = 3},
+                }
+            },
+
             -- Model.
             {
                 class   = TGUF3.Model,
@@ -23,7 +45,7 @@ DUF_FRAMES.Party = {
                 camera  = "BODY",
                 width   = 50,
                 anchors = {
-                    {point = "LEFT", dx = -10},
+                    {point = "LEFT", dx = -8},
                     {point = "TOP", dy = 10},
                     {point = "BOTTOM", dy = 10},
                 },

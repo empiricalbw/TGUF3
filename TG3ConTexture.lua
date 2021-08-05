@@ -1,3 +1,18 @@
+--[[
+--  Color texture that tracks the difficulty of the unit compared to the level
+--  of the player.
+--
+--  Optional attribtues (all {r, g, b, a} colors):
+--
+--      backgroundColor - used when targeting a friendly PC
+--      impossibleColor - used when unit is 5 or more levels higher ("red")
+--      veryHardColor   - used when unit is 3-4 levels higher ("orange")
+--      hardColor       - used when unit is within +-2 levels ("yellow")
+--      standardColor   - used when unit is within the quest green level range
+--                        ("green")
+--      trivialColor    - used when the unit is below the quest green level
+--                        range and won't award XP ("gray")
+--]]
 TGUF3.ConTexture = {
     _name  = "TGUF3.ConTexture",
     _xml   = "TG3ConTextureTemplate",
@@ -32,7 +47,7 @@ function TGUF3.ConTexture:UPDATE_BITMASK(unit, flags)
             color = self.impossibleColor
         elseif diff >= 3 then
             color = self.veryHardColor
-        elseif diff >= 2 then
+        elseif diff >= -2 then
             color = self.hardColor
         elseif diff >= -GetQuestGreenRange() then
             color = self.standardColor

@@ -2,6 +2,8 @@
 TGUF3 = {
     log_level       = 1,
     log             = TGLog:new(1, 1),
+
+    Frames = {},
 }
 
 function TGUF3.dbg(...)
@@ -19,7 +21,8 @@ function TGUF3.ADDON_LOADED(addOnName)
     end
 
     for i, layout in ipairs(DUF_FRAMES.Layout) do
-        TGUF3.UnitFrame:New(layout)
+        local f = TGUF3.UnitFrame:New(layout)
+        TGUF3.Frames[f.unit.id] = f
     end
 
     TGUF3.dbg("Loaded")

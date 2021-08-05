@@ -16,6 +16,8 @@ TG3HealthBar.xml
 TG3PowerBar.xml
 TG3ConTexture.xml
 TG3CombatTexture.xml
+TG3LootMasterTexture.xml
+TG3LeaderTexture.xml
 TG3Model.xml
 
 TGUF3.lua
@@ -27,6 +29,8 @@ TG3HealthBar.lua
 TG3PowerBar.lua
 TG3ConTexture.lua
 TG3CombatTexture.lua
+TG3LootMasterTexture.lua
+TG3LeaderTexture.lua
 TG3Model.lua
 
 TG3UnitFrame.lua
