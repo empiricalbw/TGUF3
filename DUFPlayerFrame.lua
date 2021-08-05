@@ -41,7 +41,6 @@ DUF_FRAMES.Player = {
             {
                 class   = TGUF3.Model,
                 strata  = "MEDIUM",
-                key     = "Model",
                 camera  = "BODY",
                 width   = 46,
                 height  = 80,

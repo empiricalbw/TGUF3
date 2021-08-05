@@ -1,3 +1,5 @@
+local PARTY_SPACING = -31
+
 DUF_FRAMES.Layout = {
     {
         unit_id  = "player",
@@ -9,6 +11,54 @@ DUF_FRAMES.Layout = {
             dx    = 14,
             dy    = -14,
         },
+    },
+    {
+        unit_id  = "party1",
+        width    = 202,
+        height   = 61,
+        elements = DUF_FRAMES.Party,
+        anchor   = {
+            point         = "TOPLEFT",
+            relativeUnit  = "player",
+            relativePoint = "BOTTOMLEFT",
+            dy            = PARTY_SPACING,
+        }
+    },
+    {
+        unit_id  = "party2",
+        width    = 202,
+        height   = 61,
+        elements = DUF_FRAMES.Party,
+        anchor   = {
+            point         = "TOPLEFT",
+            relativeUnit  = "party1",
+            relativePoint = "BOTTOMLEFT",
+            dy            = PARTY_SPACING,
+        }
+    },
+    {
+        unit_id  = "party3",
+        width    = 202,
+        height   = 61,
+        elements = DUF_FRAMES.Party,
+        anchor   = {
+            point         = "TOPLEFT",
+            relativeUnit  = "party2",
+            relativePoint = "BOTTOMLEFT",
+            dy            = PARTY_SPACING,
+        }
+    },
+    {
+        unit_id  = "party4",
+        width    = 202,
+        height   = 61,
+        elements = DUF_FRAMES.Party,
+        anchor   = {
+            point         = "TOPLEFT",
+            relativeUnit  = "party3",
+            relativePoint = "BOTTOMLEFT",
+            dy            = PARTY_SPACING,
+        }
     },
     {
         unit_id  = "target",
@@ -40,8 +90,9 @@ DUF_FRAMES.Layout = {
         elements = DUF_FRAMES.Generic,
         anchor   = {
             point         = "TOPLEFT",
-            relativeUnit  = "target",
-            relativePoint = "BOTTOMRIGHT",
+            relativeUnit  = "targettarget",
+            relativePoint = "BOTTOMLEFT",
+            dy            = -40,
         },
     },
 }
