@@ -1,15 +1,15 @@
 DUF_FRAMES.Layout = {
     {
         unit_id = "player",
-        width   = 200,
-        height  = 40,
+        width   = 212,
+        height  = 64,
         anchor  = {
             point = "TOPLEFT",
-            dx    = 300,
-            dy    = -300,
+            dx    = 14,
+            dy    = -80,
         },
 
-        elements = DUF_FRAMES.Party,
+        elements = DUF_FRAMES.Player,
     },
     {
         unit_id = "target",
@@ -19,7 +19,7 @@ DUF_FRAMES.Layout = {
             point         = "TOPLEFT",
             relativePoint = "BOTTOMLEFT",
             relativeUnit  = "player",
-            dy            = -5,
+            dy            = -25,
         },
 
         elements = DUF_FRAMES.Target,

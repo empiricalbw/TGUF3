@@ -1,4 +1,4 @@
-DUF_FRAMES.Target = {
+DUF_FRAMES.Player = {
     {
         class     = TGUF3.Border,
         strata    = "MEDIUM",
@@ -7,30 +7,47 @@ DUF_FRAMES.Target = {
         edgeColor = {1, 1, 1, 1},
     },
     {
-        class   = TGUF3.Texture,
-        color   = {0, 0, 0, 0},
+        class = TGUF3.Texture,
+        color = {0, 0, 0, 0},
         anchors = {
             {point = "TOPLEFT", dx = 5, dy = -5},
             {point = "BOTTOMRIGHT", dx = -5, dy = 5},
         },
 
         elements = {
-            -- Consideration texture.
+            -- Leader icon.
             {
-                class   = TGUF3.ConTexture,
-                width   = 40,
+                class   = TGUF3.LeaderTexture,
+                width   = 12,
+                height  = 12,
                 anchors = {
-                    {point = "TOPLEFT"},
-                    {point = "BOTTOM"},
-                },
+                    {point = "BOTTOMLEFT", relativePoint = "TOPLEFT",
+                     dx = 0, dy = 2},
+                }
+            },
 
-                elements = {
-                    -- Model.
-                    {
-                        class   = TGUF3.Model,
-                        key     = "Model",
-                        camera  = "HEAD",
-                    },
+            -- Master looter icon.
+            {
+                class   = TGUF3.LootMasterTexture,
+                width   = 12,
+                height  = 12,
+                anchors = {
+                    {point = "BOTTOMLEFT", relativePoint = "TOPLEFT",
+                     dx = 20, dy = 3},
+                }
+            },
+
+            -- Model.
+            {
+                class   = TGUF3.Model,
+                strata  = "MEDIUM",
+                key     = "Model",
+                camera  = "BODY",
+                width   = 46,
+                height  = 80,
+                anchors = {
+                    {point = "LEFT", dx = -5},
+                    {point = "BOTTOM"},
                 },
             },
 
@@ -40,8 +57,7 @@ DUF_FRAMES.Target = {
                 key     = "HealthBar",
                 color   = {0.271, 0.655, 0.529, 1},
                 anchors = {
-                    {point = "TOPLEFT", relativeKey = "Model",
-                     relativePoint = "TOPRIGHT",},
+                    {point = "TOPLEFT"},
                     {point = "RIGHT"},
                     {point = "BOTTOM", relativePoint = "CENTER"},
                 },
@@ -50,10 +66,11 @@ DUF_FRAMES.Target = {
                     -- Combat icon.
                     {
                         class   = TGUF3.CombatTexture,
+                        key     = "Combat",
                         width   = 20,
                         height  = 20,
                         anchors = {
-                            {point = "LEFT", dx = 5},
+                            {point = "LEFT", dx = 32, dy = 1},
                         }
                     },
 
@@ -66,8 +83,10 @@ DUF_FRAMES.Target = {
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", dx = 25, dy = -2},
-                            {point = "BOTTOMRIGHT", dx = -30},
+                            {point = "TOP", dy = -2},
+                            {point = "LEFT", relativeKey="Combat",
+                             relativePoint = "RIGHT", dx = 2, dy = -2},
+                            {point = "BOTTOMRIGHT", dx = -30, dy = 4},
                         },
                     },
 
@@ -76,11 +95,26 @@ DUF_FRAMES.Target = {
                         class    = TGUF3.String,
                         text     = "$hc/$hm",
                         alignH   = "RIGHT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", relativeKey = "Name"},
-                            {point = "BOTTOMRIGHT", dx = -5},
+                            {point = "TOPLEFT", relativeKey="Name"},
+                            {point = "BOTTOM", relativeKey="Name"},
+                            {point = "RIGHT", dx = -5},
+                        },
+                    },
+
+                    -- Class/level string.
+                    {
+                        class    = TGUF3.String,
+                        key      = "ClassLevel",
+                        text     = "$lv $ccl",
+                        alignH   = "LEFT",
+                        alignV   = "BOTTOM",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOPLEFT", relativeKey="Name"},
+                            {point = "BOTTOMRIGHT", relativeKey="Name"},
                         },
                     },
                 },
@@ -88,67 +122,26 @@ DUF_FRAMES.Target = {
 
             -- Power bar.
             {
-                class   = TGUF3.PowerBar,
-                key     = "PowerBar",
+                class    = TGUF3.PowerBar,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
-                     relativePoint = "BOTTOMLEFT"},
+                     relativePoint = "BOTTOMLEFT", dy = -1},
                     {point = "BOTTOMRIGHT"},
                 },
 
                 elements = {
-                    -- Class/level string.
-                    {
-                        class    = TGUF3.String,
-                        key      = "ClassLevel",
-                        text     = "$lv $ccl",
-                        alignH   = "LEFT",
-                        alignV   = "TOP",
-                        font     = "DUF_Font1.ttf",
-                        anchors  = {
-                            {point = "TOP", dy = -2},
-                            {point = "BOTTOM"},
-                            {point = "LEFT", relativeKey = "Name"},
-                            {point = "RIGHT", relativeKey = "Name"},
-                        },
-                    },
-
                     -- Power string.
                     {
                         class    = TGUF3.String,
                         text     = "$pc/$pm",
                         alignH   = "RIGHT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", relativeKey = "ClassLevel"},
+                            {point = "TOPLEFT"},
                             {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
-                }
-            },
-
-            -- Buffs.
-            {
-                class   = TGUF3.BuffList,
-                width   = 16,
-                height  = 16,
-                --index   = 1,
-                anchors = {
-                    {point = "BOTTOMLEFT", relativeKey = "HealthBar",
-                     relativePoint = "TOPLEFT", dy = 3},
-                }
-            },
-
-            -- Debuffs.
-            {
-                class   = TGUF3.DebuffList,
-                width   = 16,
-                height  = 16,
-                --index   = 1,
-                anchors = {
-                    {point = "TOPLEFT", relativeKey = "PowerBar",
-                     relativePoint = "BOTTOMLEFT", dy = -3},
                 }
             },
         }

@@ -19,6 +19,8 @@ TG3CombatTexture.xml
 TG3LootMasterTexture.xml
 TG3LeaderTexture.xml
 TG3Model.xml
+TG3Aura.xml
+TG3AuraList.xml
 
 TGUF3.lua
 TG3Element.lua
@@ -32,10 +34,13 @@ TG3CombatTexture.lua
 TG3LootMasterTexture.lua
 TG3LeaderTexture.lua
 TG3Model.lua
+TG3Aura.lua
+TG3AuraList.lua
 
 TG3UnitFrame.lua
 
 DUFFrames.lua
+DUFPlayerFrame.lua
 DUFTargetFrame.lua
 DUFPartyFrame.lua
 DUFLayout.lua
