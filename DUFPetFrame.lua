@@ -101,7 +101,7 @@ DUF_FRAMES.Pet = {
                 class   = TGUF3.BuffList,
                 width   = 16,
                 height  = 16,
-                count   = 9
+                count   = 9,
                 anchors = {
                     {point = "BOTTOMLEFT", relativeKey = "HealthBar",
                      relativePoint = "TOPLEFT", dy = 3},
@@ -113,7 +113,7 @@ DUF_FRAMES.Pet = {
                 class   = TGUF3.DebuffList,
                 width   = 16,
                 height  = 16,
-                count   = 9
+                count   = 9,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "PowerBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},

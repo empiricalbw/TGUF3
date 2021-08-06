@@ -17,10 +17,23 @@ DUF_FRAMES.Layout = {
         width    = 125,
         height   = 38,
         elements = DUF_FRAMES.Pet,
-        anchors  = {
+        anchor   = {
             point         = "LEFT",
             relativeUnit  = "player",
             relativePoint = "RIGHT",
+            dx            = -3,
+        },
+    },
+    {
+        unit_id  = "pettarget",
+        width    = 92,
+        height   = 23,
+        elements = DUF_FRAMES.PetTarget,
+        anchor   = {
+            point         = "LEFT",
+            relativeUnit  = "pet",
+            relativePoint = "RIGHT",
+            dx            = -3,
         },
     },
     {
