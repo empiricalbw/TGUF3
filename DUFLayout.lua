@@ -13,21 +13,32 @@ DUF_FRAMES.Layout = {
         },
     },
     {
+        unit_id  = "pet",
+        width    = 125,
+        height   = 38,
+        elements = DUF_FRAMES.Pet,
+        anchors  = {
+            point         = "LEFT",
+            relativeUnit  = "player",
+            relativePoint = "RIGHT",
+        },
+    },
+    {
         unit_id  = "party1",
         width    = 202,
-        height   = 61,
+        height   = 52,
         elements = DUF_FRAMES.Party,
         anchor   = {
             point         = "TOPLEFT",
             relativeUnit  = "player",
             relativePoint = "BOTTOMLEFT",
-            dy            = PARTY_SPACING,
+            dy            = PARTY_SPACING + 14,
         }
     },
     {
         unit_id  = "party2",
         width    = 202,
-        height   = 61,
+        height   = 52,
         elements = DUF_FRAMES.Party,
         anchor   = {
             point         = "TOPLEFT",
@@ -39,7 +50,7 @@ DUF_FRAMES.Layout = {
     {
         unit_id  = "party3",
         width    = 202,
-        height   = 61,
+        height   = 52,
         elements = DUF_FRAMES.Party,
         anchor   = {
             point         = "TOPLEFT",
@@ -51,7 +62,7 @@ DUF_FRAMES.Layout = {
     {
         unit_id  = "party4",
         width    = 202,
-        height   = 61,
+        height   = 52,
         elements = DUF_FRAMES.Party,
         anchor   = {
             point         = "TOPLEFT",

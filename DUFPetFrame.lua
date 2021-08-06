@@ -1,4 +1,4 @@
-DUF_FRAMES.Party = {
+DUF_FRAMES.Pet = {
     {
         class     = TGUF3.Border,
         strata    = "MEDIUM",
@@ -15,41 +15,6 @@ DUF_FRAMES.Party = {
         },
 
         elements = {
-            -- Leader icon.
-            {
-                class   = TGUF3.LeaderTexture,
-                key     = "Leader",
-                width   = 12,
-                height  = 12,
-                anchors = {
-                    {point = "TOPRIGHT", relativePoint = "TOPLEFT", dx = -3},
-                }
-            },
-
-            -- Master looter icon.
-            {
-                class   = TGUF3.LootMasterTexture,
-                width   = 12,
-                height  = 12,
-                anchors = {
-                    {point = "TOPLEFT", relativeKey = "Leader",
-                     relativePoint = "BOTTOMLEFT"},
-                }
-            },
-
-            -- Model.
-            {
-                class   = TGUF3.Model,
-                strata  = "MEDIUM",
-                camera  = "BODY",
-                width   = 46,
-                height  = 47,
-                anchors = {
-                    {point = "LEFT", dx = -5},
-                    {point = "BOTTOM", dy = 0},
-                },
-            },
-
             -- Health bar.
             {
                 class   = TGUF3.HealthBar,
@@ -58,34 +23,21 @@ DUF_FRAMES.Party = {
                 anchors = {
                     {point = "TOPLEFT"},
                     {point = "RIGHT"},
-                    {point = "BOTTOM", dy = 16},
+                    {point = "BOTTOM", relativePoint = "CENTER"},
                 },
 
                 elements = {
-                    -- Combat icon.
-                    {
-                        class   = TGUF3.CombatTexture,
-                        key     = "Combat",
-                        width   = 20,
-                        height  = 20,
-                        anchors = {
-                            {point = "LEFT", dx = 32, dy = 1},
-                        }
-                    },
-
                     -- Name string.
                     {
                         class    = TGUF3.String,
                         key      = "Name",
                         text     = "$nm",
                         alignH   = "LEFT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOP", dy = -2},
-                            {point = "LEFT", relativeKey="Combat",
-                             relativePoint = "RIGHT", dx = 2, dy = -2},
-                            {point = "BOTTOMRIGHT", dx = -30, dy = 4},
+                            {point = "TOPLEFT", dx = 5},
+                            {point = "BOTTOMRIGHT", dx = -30},
                         },
                     },
 
@@ -97,23 +49,8 @@ DUF_FRAMES.Party = {
                         alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", relativeKey="Name"},
-                            {point = "BOTTOM", relativeKey="Name"},
-                            {point = "RIGHT", dx = -5},
-                        },
-                    },
-
-                    -- Class/level string.
-                    {
-                        class    = TGUF3.String,
-                        key      = "ClassLevel",
-                        text     = "$lv $ccl",
-                        alignH   = "LEFT",
-                        alignV   = "BOTTOM",
-                        font     = "DUF_Font1.ttf",
-                        anchors  = {
-                            {point = "TOPLEFT", relativeKey="Name"},
-                            {point = "BOTTOMRIGHT", relativeKey="Name"},
+                            {point = "TOPLEFT", relativeKey = "Name"},
+                            {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
                 },
@@ -125,11 +62,25 @@ DUF_FRAMES.Party = {
                 key     = "PowerBar",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
-                     relativePoint = "BOTTOMLEFT", dy = -1},
+                     relativePoint = "BOTTOMLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
 
                 elements = {
+                    -- Class/level string.
+                    {
+                        class    = TGUF3.String,
+                        key      = "ClassLevel",
+                        text     = "$lv $ccl",
+                        alignH   = "LEFT",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
+                        anchors  = {
+                            {point = "TOPLEFT", dx = 5},
+                            {point = "BOTTOMRIGHT", dx = -30},
+                        },
+                    },
+
                     -- Power string.
                     {
                         class    = TGUF3.String,
@@ -138,7 +89,7 @@ DUF_FRAMES.Party = {
                         alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT"},
+                            {point = "TOPLEFT", relativeKey = "ClassLevel"},
                             {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
@@ -150,7 +101,7 @@ DUF_FRAMES.Party = {
                 class   = TGUF3.BuffList,
                 width   = 16,
                 height  = 16,
-                --index   = 1,
+                count   = 9
                 anchors = {
                     {point = "BOTTOMLEFT", relativeKey = "HealthBar",
                      relativePoint = "TOPLEFT", dy = 3},
@@ -162,7 +113,7 @@ DUF_FRAMES.Party = {
                 class   = TGUF3.DebuffList,
                 width   = 16,
                 height  = 16,
-                --index   = 1,
+                count   = 9
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "PowerBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},

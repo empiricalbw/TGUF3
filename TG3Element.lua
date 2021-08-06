@@ -25,7 +25,7 @@ end
 function TGUF3.Element.MakeElems(unitFrame, parent, elements)
     parent.children = {}
     for _, e in ipairs(elements) do
-        print("Instantiating "..e.class._name)
+        --print("Instantiating "..e.class._name)
         local elem = TGUF3.Element.MakeElem(unitFrame, parent, e)
         table.insert(parent.children, elem)
 
