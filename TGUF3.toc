@@ -21,6 +21,7 @@ TG3LeaderTexture.xml
 TG3Model.xml
 TG3Aura.xml
 TG3AuraList.xml
+TG3ThreatTexture.xml
 
 TGUF3.lua
 TG3Element.lua
@@ -36,6 +37,7 @@ TG3LeaderTexture.lua
 TG3Model.lua
 TG3Aura.lua
 TG3AuraList.lua
+TG3ThreatTexture.lua
 
 TG3UnitFrame.lua
 

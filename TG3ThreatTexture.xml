@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+    <StatusBar name="TG3ThreatTextureTemplate" mixin="TG3ThreatTextureMixin" virtual="true">
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture setAllPoints="true">
+                    <Color r="0" g="0" b="0" a="0.5"/>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <Texture parentKey="Spark" file="Interface\CastingBar\UI-CastingBar-Spark" alphaMode="ADD">
+                    <Size>
+                        <AbsDimension x="32" y="32"/>
+                    </Size>
+                </Texture>
+            </Layer>
+        </Layers>
+    </StatusBar>
+</Ui>

@@ -40,7 +40,7 @@ local substitutionTable = {
     ["$nm"] = {
         flag = TGU.FLAGS.NAME,
         func = function(unit)
-            return unit.name
+            return unit.name or ""
         end
     },
 
@@ -48,7 +48,7 @@ local substitutionTable = {
     ["$hc"] = {
         flag = TGU.FLAGS.HEALTH,
         func = function(unit)
-            return unit.health.current
+            return unit.health.current or ""
         end
     },
 
@@ -56,7 +56,7 @@ local substitutionTable = {
     ["$hm"] = {
         flag = TGU.FLAGS.HEALTH,
         func = function(unit)
-            return unit.health.max
+            return unit.health.max or ""
         end
     },
 
@@ -64,7 +64,7 @@ local substitutionTable = {
     ["$pc"] = {
         flag = TGU.FLAGS.POWER,
         func = function(unit)
-            return unit.power.current
+            return unit.power.current or ""
         end
     },
 
@@ -72,7 +72,7 @@ local substitutionTable = {
     ["$pm"] = {
         flag = TGU.FLAGS.POWER,
         func = function(unit)
-            return unit.power.max
+            return unit.power.max or ""
         end
     },
 
@@ -83,7 +83,7 @@ local substitutionTable = {
             if unit.level == -1 then
                 return "??"
             end
-            return unit.level
+            return unit.level or ""
         end
     },
 
@@ -91,7 +91,7 @@ local substitutionTable = {
     ["$cl"] = {
         flag = TGU.FLAGS.CLASS,
         func = function(unit)
-            return unit.class.localized
+            return unit.class.localized or ""
         end
     },
 
@@ -102,11 +102,27 @@ local substitutionTable = {
                        TGU.FLAGS.NPC),
         func = function(unit)
             if unit.npc then
-                return unit.creatureType
+                return unit.creatureType or ""
             end
-            return unit.class.localized
+            return unit.class.localized or ""
         end
     },
+
+    -- Threat ceiling - total amount of threat required to pull aggro.
+    ["$thc"] = {
+        flag = TGU.FLAGS.THREAT,
+        func = function(unit)
+            return unit.threat.ceiling or ""
+        end
+    },
+
+    -- Threat window - remaining amount of threat needed to pull aggro.
+    ["$thw"] = {
+        flag = TGU.FLAGS.THREAT,
+        func = function(unit)
+            return unit.threat.window or ""
+        end
+    }
 }
 
 function TGUF3.String:Init(elem)
@@ -135,10 +151,6 @@ function TGUF3.String:Init(elem)
 end
 
 function TGUF3.String:UPDATE_BITMASK(unit, flags)
-    if not unit.exists then
-        return
-    end
-
     local text = self.text
     for k, v in pairs(self.substitutions) do
         text = text:gsub(k, v.func(unit))

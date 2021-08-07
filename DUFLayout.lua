@@ -87,7 +87,7 @@ DUF_FRAMES.Layout = {
     {
         unit_id  = "target",
         width    = 252,
-        height   = 42,
+        height   = 50,
         elements = DUF_FRAMES.Target,
         anchor  = {
             point = "TOPLEFT",
@@ -101,9 +101,9 @@ DUF_FRAMES.Layout = {
         height   = 42,
         elements = DUF_FRAMES.Generic,
         anchor  = {
-            point         = "TOPLEFT",
+            point         = "LEFT",
             relativeUnit  = "target",
-            relativePoint = "TOPRIGHT",
+            relativePoint = "RIGHT",
             dx            = -4,
         },
     },

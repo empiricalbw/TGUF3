@@ -63,10 +63,10 @@ DUF_FRAMES.Target = {
                         key      = "Name",
                         text     = "$nm",
                         alignH   = "LEFT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", dx = 25, dy = -2},
+                            {point = "TOPLEFT", dx = 25},
                             {point = "BOTTOMRIGHT", dx = -30},
                         },
                     },
@@ -76,7 +76,7 @@ DUF_FRAMES.Target = {
                         class    = TGUF3.String,
                         text     = "$hc/$hm",
                         alignH   = "RIGHT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
                             {point = "TOPLEFT", relativeKey = "Name"},
@@ -93,7 +93,7 @@ DUF_FRAMES.Target = {
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
                      relativePoint = "BOTTOMLEFT"},
-                    {point = "BOTTOMRIGHT"},
+                    {point = "BOTTOMRIGHT", dy = 6},
                 },
 
                 elements = {
@@ -128,6 +128,47 @@ DUF_FRAMES.Target = {
                 }
             },
 
+            -- Threat bar.
+            {
+                class   = TGUF3.ThreatTexture,
+                key     = "Threat",
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "BOTTOMRIGHT"},
+                },
+
+                elements = {
+                    -- Threat total string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "$thc",
+                        alignH   = "CENTER",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
+                        fontSize = 8,
+                        anchors  = {
+                            {point = "TOPLEFT", dy = 1},
+                            {point = "BOTTOMRIGHT", dy = 1},
+                        },
+                    },
+
+                    -- Threat window string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "$thw",
+                        alignH   = "RIGHT",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
+                        fontSize = 8,
+                        anchors  = {
+                            {point = "TOPLEFT", dy = 1},
+                            {point = "BOTTOMRIGHT", dx = -5, dy = 1},
+                        },
+                    },
+                },
+            },
+
             -- Buffs.
             {
                 class   = TGUF3.BuffList,
@@ -147,7 +188,7 @@ DUF_FRAMES.Target = {
                 height  = 16,
                 --index   = 1,
                 anchors = {
-                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                    {point = "TOPLEFT", relativeKey = "Threat",
                      relativePoint = "BOTTOMLEFT", dy = -3},
                 }
             },

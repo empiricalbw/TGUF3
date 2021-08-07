@@ -19,6 +19,7 @@ function TGUF3.PowerBar:Init(elem)
     self.colors = {
         [0] = elem.manaColor or {0.376, 0.624, 1, 1},
         [1] = elem.rageColor or {0.675, 0.15, 0.15, 1},
+        [2] = elem.focusColor or {0.376, 0.624, 1, 1},
         [3] = elem.energyColor or {0.75, 0.75, 0.25, 1},
     }
 
