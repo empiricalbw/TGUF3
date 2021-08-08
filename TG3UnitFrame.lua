@@ -16,6 +16,8 @@ function TGUF3.UnitFrame:Init(layout)
     self:RegisterForClicks("LeftButtonUp", "RightButtonUp")
     self:TG3SetPoint(layout.anchor)
     self:SetSize(layout.width, layout.height)
+    self:SetScript("OnEnter", TGUF3.UnitFrame.OnEnter)
+    self:SetScript("OnLeave", TGUF3.UnitFrame.OnLeave)
     RegisterUnitWatch(self)
     SecureUnitButton_OnLoad(self, layout.unit_id,
         function() self:MenuFunc() end)
@@ -48,6 +50,16 @@ function TGUF3.UnitFrame:TG3SetPoint(anchor)
     local dx            = anchor.dx or 0
     local dy            = anchor.dy or 0
     self:SetPoint(point, relativeFrame, relativePoint, dx, dy)
+end
+
+function TGUF3.UnitFrame:OnEnter()
+    GameTooltip_SetDefaultAnchor(GameTooltip, self)
+    GameTooltip:SetUnit(self.unit.id)
+    GameTooltipTextLeft1:SetTextColor(GameTooltip_UnitColor(self.unit.id))
+end
+
+function TGUF3.UnitFrame:OnLeave()
+    GameTooltip:FadeOut()
 end
 
 function TGUF3.UnitFrame:MenuFunc()

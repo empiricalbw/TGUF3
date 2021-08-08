@@ -27,7 +27,7 @@ function TGUF3.ThreatTexture:Init(elem)
     self.Spark:SetHeight(32 * self:GetHeight() / 9)
     self.Spark:SetWidth(32)
 
-    local id = elem.id or "Interface/Addons/TGUF_2/DUF_Images/bg",
+    local id = elem.id or "Interface/Addons/TGUF_2/DUF_Images/bg"
     self:SetStatusBarTexture(id)
     self:SetMinMaxValues(0, 1)
     self:SetValue(0)
