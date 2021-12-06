@@ -119,12 +119,25 @@ DUF_FRAMES.Player = {
                 },
             },
 
+            -- Blue line texture.
+            {
+                class    = TGUF3.Texture,
+                key      = "HorizDivider",
+                color    = {50/255, 105/255, 107/255, 0.5},
+                anchors  = {
+                    {point = "TOPLEFT", relativeKey = "HealthBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "BOTTOMRIGHT", relativeKey = "HealthBar",
+                     relativePoint = "BOTTOMRIGHT", dy = -1},
+                 },
+            },
+
             -- Power bar.
             {
                 class    = TGUF3.PowerBar,
                 anchors = {
-                    {point = "TOPLEFT", relativeKey = "HealthBar",
-                     relativePoint = "BOTTOMLEFT", dy = -1},
+                    {point = "TOPLEFT", relativeKey = "HorizDivider",
+                     relativePoint = "BOTTOMLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
 
