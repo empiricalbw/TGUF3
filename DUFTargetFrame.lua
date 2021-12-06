@@ -54,7 +54,7 @@ DUF_FRAMES.Target = {
                         height  = 20,
                         anchors = {
                             {point = "LEFT", dx = 5},
-                        }
+                        },
                     },
 
                     -- Name string.
@@ -97,6 +97,16 @@ DUF_FRAMES.Target = {
                 },
 
                 elements = {
+                    -- Raid icon.
+                    {
+                        class   = TGUF3.RaidIconTexture,
+                        width   = 13,
+                        height  = 13,
+                        anchors = {
+                            {point = "LEFT", dx = 7, dy = 1},
+                        },
+                    },
+
                     -- Class/level string.
                     {
                         class    = TGUF3.String,
