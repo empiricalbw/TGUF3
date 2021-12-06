@@ -32,6 +32,19 @@ TGUF3.String = {
 }
 TG3StringMixin = TGUF3.String
 
+-- Convert a long number into one with K or M appended.
+local function SINumber(v)
+    if not v then
+        return nil
+    elseif v < 100000 then
+        return v
+    elseif v < 1000000 then
+        return string.format("%.1fK", v / 1000)
+    else
+        return string.format("%.1fM", v / 1000000)
+    end
+end
+
 -- Substitution table.  Note that no substitution should be a substring of some
 -- other substitution otherwise behaviour is nondeterministic.  That is, having
 -- both "$cc" and "$ccl" in the table would be a bad idea.
@@ -52,11 +65,27 @@ local substitutionTable = {
         end
     },
 
+    -- SI current health.
+    ["$shc"] = {
+        flag = TGU.FLAGS.HEALTH,
+        func = function(unit)
+            return SINumber(unit.health.current) or ""
+        end
+    },
+
     -- Maximum health.
     ["$hm"] = {
         flag = TGU.FLAGS.HEALTH,
         func = function(unit)
             return unit.health.max or ""
+        end
+    },
+
+    -- SI maximum health.
+    ["$shm"] = {
+        flag = TGU.FLAGS.HEALTH,
+        func = function(unit)
+            return SINumber(unit.health.max) or ""
         end
     },
 
@@ -131,6 +160,7 @@ function TGUF3.String:Init(elem)
     local font     = elem.font or "Fonts/FRIZQT__.TTF"
     local fontSize = elem.fontSize or 10
     local color    = elem.color or {1, 1, 1, 1}
+    local wrap     = elem.wrap or false
     if not font:find("/") and not font:find("\\") then
         font = "Interface/AddOns/TGUF3/Fonts/"..font
     end
@@ -138,6 +168,8 @@ function TGUF3.String:Init(elem)
     self.String:SetTextColor(unpack(color))
     self.String:SetJustifyH(alignH)
     self.String:SetJustifyV(alignV)
+    self.String:SetWordWrap(wrap)
+    self.String:SetNonSpaceWrap(wrap)
 
     self.text          = elem.text
     self.substitutions = {}
