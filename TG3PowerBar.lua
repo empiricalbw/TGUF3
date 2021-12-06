@@ -23,7 +23,7 @@ function TGUF3.PowerBar:Init(elem)
         [3] = elem.energyColor or {0.75, 0.75, 0.25, 1},
     }
 
-    local texture = elem.texture or "Interface/Addons/TGUF_2/DUF_Images/bg"
+    local texture = elem.texture or "Interface/Addons/TGUF3/DUF_Images/bg"
     self:SetStatusBarTexture(texture)
 end
 
