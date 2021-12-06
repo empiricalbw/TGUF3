@@ -1,12 +1,7 @@
 --[[
 --  Texture that displays the raid icon currently assigned to the unit.
 --
---  Optional attributes:
---
---      id     - file name or file ID for the texture
---      coords - texture coordinates {left, right, top, bottom} with topleft
---               being (0,0) and bottomright being (1,1)
---      color  - vertex color to apply to the texture {r, g, b, a}
+--  No attributes.
 --]]
 TGUF3.RaidIconTexture = {
     _name  = "TGUF3.RaidIconTexture",
