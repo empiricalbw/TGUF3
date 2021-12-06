@@ -132,7 +132,7 @@ function TGUF3.String:Init(elem)
     local fontSize = elem.fontSize or 10
     local color    = elem.color or {1, 1, 1, 1}
     if not font:find("/") and not font:find("\\") then
-        font = "Interface/AddOns/TGUF_2/Fonts/"..font
+        font = "Interface/AddOns/TGUF3/Fonts/"..font
     end
     self.String:SetFont(font, fontSize)
     self.String:SetTextColor(unpack(color))
