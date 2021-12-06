@@ -67,14 +67,14 @@ DUF_FRAMES.Target = {
                         font     = "DUF_Font1.ttf",
                         anchors  = {
                             {point = "TOPLEFT", dx = 25},
-                            {point = "BOTTOMRIGHT", dx = -30},
+                            {point = "BOTTOMRIGHT", dx = -70},
                         },
                     },
 
                     -- Health string.
                     {
                         class    = TGUF3.String,
-                        text     = "$hc/$hm",
+                        text     = "$shc/$shm",
                         alignH   = "RIGHT",
                         alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
