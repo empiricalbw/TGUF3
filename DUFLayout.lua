@@ -107,16 +107,4 @@ DUF_FRAMES.Layout = {
             dx            = -4,
         },
     },
-    {
-        unit_id  = "focus",
-        width    = 150,
-        height   = 42,
-        elements = DUF_FRAMES.Generic,
-        anchor   = {
-            point         = "TOPLEFT",
-            relativeUnit  = "targettarget",
-            relativePoint = "BOTTOMLEFT",
-            dy            = -40,
-        },
-    },
 }
