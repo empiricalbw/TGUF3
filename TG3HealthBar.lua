@@ -46,7 +46,7 @@ function TGUF3.HealthBar:Init(elem)
     self.highPercent = (elem.highPercent or 60) / 100
     self.lowPercent  = (elem.lowPercent  or 30) / 100
 
-    local texture = elem.texture or "Interface/Addons/TGUF_2/DUF_Images/bg"
+    local texture = elem.texture or "Interface/Addons/TGUF3/DUF_Images/bg"
     self:SetStatusBarTexture(texture)
 end
 
