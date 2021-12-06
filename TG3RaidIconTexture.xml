@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+    <Frame name="TG3RaidIconTextureTemplate" mixin="TG3RaidIconTextureMixin" virtual="true">
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Texture" file="Interface\TargetingFrame\UI-RaidTargetingIcons" setAllPoints="true"/>
+            </Layer>
+        </Layers>
+    </Frame>
+</Ui>
