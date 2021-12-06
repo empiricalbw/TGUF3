@@ -19,7 +19,6 @@ function TGUF3.DisableBlizzardFrames()
     local hidePlayer
     local hideTarget
     local hideParty
-    local hideFocus
 
     for id, _ in pairs(TGUF3.Frames) do
         if id == "player" then
@@ -28,8 +27,6 @@ function TGUF3.DisableBlizzardFrames()
             hideParty = true
         elseif id == "target" then
             hideTarget = true
-        elseif id == "focus" then
-            hideFocus = true
         end
     end
 
@@ -41,9 +38,6 @@ function TGUF3.DisableBlizzardFrames()
     end
     if hideTarget then
         TGUF3.HideBlizzardTargetFrames()
-    end
-    if hideFocus then
-        TGUF3.HideBlizzardFocusFrames()
     end
 end
 
@@ -67,11 +61,6 @@ function TGUF3.HideBlizzardTargetFrames()
     TargetFrame:UnregisterAllEvents()
     TargetFrame:Hide()
     ComboFrame:UnregisterAllEvents()
-end
-
-function TGUF3.HideBlizzardFocusFrames()
-    FocusFrame:UnregisterAllEvents()
-    FocusFrame:Hide()
 end
 
 TGEventManager.Register(TGUF3)
