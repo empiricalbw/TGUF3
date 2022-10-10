@@ -21,6 +21,7 @@ function TGUF3.PowerBar:Init(elem)
         [1] = elem.rageColor or {0.675, 0.15, 0.15, 1},
         [2] = elem.focusColor or {0.376, 0.624, 1, 1},
         [3] = elem.energyColor or {0.75, 0.75, 0.25, 1},
+        [6] = elem.runicColor or {125/255, 47/255, 160/255, 1},
     }
 
     local texture = elem.texture or "Interface/Addons/TGUF3/DUF_Images/bg"
