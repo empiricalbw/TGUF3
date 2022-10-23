@@ -1,11 +1,11 @@
-## Interface: 20502
+## Interface: 30400
 ## Title: TGUF3
 ## Author: Empirical
 ## Version: 1.0a1
 ## DefaultState: enabled
 ## Notes: Thor's Godly unit frames
 ## URL: 
-## Dependencies: TGEventManager TGUnit
+## Dependencies: TGEventManager TGUnit TGUnitPopup
 ## SavedVariables:
 
 TG3UnitFrame.xml

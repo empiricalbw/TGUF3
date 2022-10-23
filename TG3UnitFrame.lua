@@ -22,14 +22,6 @@ function TGUF3.UnitFrame:Init(layout)
     SecureUnitButton_OnLoad(self, layout.unit_id,
         function() self:MenuFunc() end)
 
-    -- Create the dropdown frame.
-    self.ddFrame = CreateFrame("Frame", nil, self, "UIDropDownMenuTemplate")
-    self.ddFrame:SetSize(10, 10)
-    UIDropDownMenu_Initialize(
-        self.ddFrame,
-        function() self:DropDown_Initialize() end,
-        "MENU")
-
     -- Table of key frames.
     self.keyFrames = {}
 
@@ -64,32 +56,9 @@ end
 
 function TGUF3.UnitFrame:MenuFunc()
     -- Called when we get a right-click on the specified secure unit button.
-    ToggleDropDownMenu(1, nil, self.ddFrame, "cursor", 20, 0)
+    TGUnitPopup.ShowUnitPopup(self.unit.id)
 end
 
-function TGUF3.UnitFrame:DropDown_Initialize()
-    local unit = self.unit.id
-    local menu
-    local name
-    local id
-
-    if UnitIsUnit(unit,"player") then
-        menu = "SELF"
-    elseif UnitIsUnit(unit,"pet") then
-        menu = "PET"
-    elseif UnitIsPlayer(unit) then
-        id = UnitInRaid(unit)
-        if id then
-            menu = "RAID_PLAYER"
-        elseif UnitInParty(unit) then
-            menu = "PARTY"
-        else
-            menu = "PLAYER"
-        end
-    else
-        menu = "RAID_TARGET_ICON"
-        name = RAID_TARGET_ICON
-    end
-
-    UnitPopup_ShowMenu(self.ddFrame, menu, unit, name, id)
+function TGUF3.UnitFrame:UPDATE_GUID(unit)
+    TGUnitPopup.HideUnitPopup(unit.id)
 end
