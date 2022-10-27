@@ -40,7 +40,7 @@ DUF_FRAMES.Party = {
             -- Model.
             {
                 class   = TGUF3.Model,
-                strata  = "MEDIUM",
+                strata  = "HIGH",
                 camera  = "BODY",
                 width   = 46,
                 height  = 47,
@@ -48,6 +48,18 @@ DUF_FRAMES.Party = {
                     {point = "LEFT", dx = -5},
                     {point = "BOTTOM", dy = 0},
                 },
+            },
+
+            -- Target highlight.
+            {
+                class = TGUF3.Texture,
+                strata = "MEDIUM",
+                anchors = {
+                    {point = "TOPLEFT"},
+                    {point = "BOTTOMRIGHT"},
+                },
+                targetHighlight = "Interface/QuestFrame/UI-QuestTitleHighlight",
+                targetColor = {1, 1, 1, 0.2},
             },
 
             -- Health bar.

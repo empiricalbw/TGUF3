@@ -15,6 +15,18 @@ DUF_FRAMES.Pet = {
         },
 
         elements = {
+            -- Target highlight.
+            {
+                class = TGUF3.Texture,
+                strata = "MEDIUM",
+                anchors = {
+                    {point = "TOPLEFT"},
+                    {point = "BOTTOMRIGHT"},
+                },
+                targetHighlight = "Interface/QuestFrame/UI-QuestTitleHighlight",
+                targetColor = {1, 1, 1, 0.2},
+            },
+
             -- Health bar.
             {
                 class   = TGUF3.HealthBar,

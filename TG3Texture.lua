@@ -5,6 +5,7 @@
 --
 --      id    - texture id or path
 --      color - texture color if id specified, otherwise solid color
+--      targetHighlight - highlight texture to use if unit is targetted
 --
 --  At least one of id or color (possibly both) should be supplied.
 --]]
@@ -22,5 +23,21 @@ function TGUF3.Texture:Init(elem)
         end
     elseif elem.color then
         self.Texture:SetColorTexture(unpack(elem.color))
+    else
+        self.Texture:Hide()
+    end
+
+    if elem.targetHighlight then
+        self.highlightTarget = true
+        self.Highlight:SetTexture(elem.targetHighlight)
+        if elem.targetColor then
+            self.Highlight:SetVertexColor(unpack(elem.targetColor))
+        end
+    end
+end
+
+function TGUF3.Texture:UPDATE_ISPLAYERTARGET(unit)
+    if self.highlightTarget then
+        self.Highlight:SetShown(unit.isPlayerTarget)
     end
 end

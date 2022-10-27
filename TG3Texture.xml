@@ -5,6 +5,9 @@
             <Layer level="BACKGROUND">
                 <Texture parentKey="Texture" setAllPoints="true"/>
             </Layer>
+            <Layer level="ARTWORK">
+                <Texture parentKey="Highlight" hidden="true" setAllPoints="true" alphaMode="ADD"/>
+            </Layer>
         </Layers>
     </Frame>
 </Ui>
