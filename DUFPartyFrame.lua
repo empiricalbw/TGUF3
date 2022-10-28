@@ -7,8 +7,9 @@ DUF_FRAMES.Party = {
         edgeColor = {1, 1, 1, 1},
     },
     {
-        class = TGUF3.Texture,
-        color = {0, 0, 0, 0},
+        class   = TGUF3.Texture,
+        strata  = "LOW",
+        color   = {0, 0, 0, 0},
         anchors = {
             {point = "TOPLEFT", dx = 5, dy = -5},
             {point = "BOTTOMRIGHT", dx = -5, dy = 5},
@@ -59,7 +60,7 @@ DUF_FRAMES.Party = {
                     {point = "BOTTOMRIGHT"},
                 },
                 targetHighlight = "Interface/QuestFrame/UI-QuestTitleHighlight",
-                targetColor = {1, 1, 1, 0.2},
+                targetColor = {1, 1, 1, 0.3},
             },
 
             -- Health bar.

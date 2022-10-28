@@ -7,8 +7,9 @@ DUF_FRAMES.Player = {
         edgeColor = {1, 1, 1, 1},
     },
     {
-        class = TGUF3.Texture,
-        color = {0, 0, 0, 0},
+        class   = TGUF3.Texture,
+        strata  = "LOW",
+        color   = {0, 0, 0, 0},
         anchors = {
             {point = "TOPLEFT", dx = 5, dy = -5},
             {point = "BOTTOMRIGHT", dx = -5, dy = 5},
