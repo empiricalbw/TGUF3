@@ -9,6 +9,9 @@ function TGUF3.Element.MakeElem(unitFrame, parent, elem)
     if elem.strata then
         f:SetFrameStrata(elem.strata)
     end
+    if elem.frameLevel then
+        f:SetFrameLevel(elem.frameLevel)
+    end
     TGUF3.Element.SetAnchors(f, elem.anchors)
     if elem.width then
         f:SetWidth(elem.width)

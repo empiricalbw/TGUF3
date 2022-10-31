@@ -41,7 +41,8 @@ DUF_FRAMES.Party = {
             -- Model.
             {
                 class   = TGUF3.Model,
-                strata  = "HIGH",
+                strata  = "MEDIUM",
+                frameLevel = 100,
                 camera  = "BODY",
                 width   = 46,
                 height  = 47,
@@ -54,7 +55,7 @@ DUF_FRAMES.Party = {
             -- Target highlight.
             {
                 class = TGUF3.Texture,
-                strata = "MEDIUM",
+                frameLevel = 200,
                 anchors = {
                     {point = "TOPLEFT"},
                     {point = "BOTTOMRIGHT"},
