@@ -114,6 +114,7 @@ DUF_FRAMES.Pet = {
                 width   = 16,
                 height  = 16,
                 count   = 9,
+                align   = "BOTTOM",
                 anchors = {
                     {point = "BOTTOMLEFT", relativeKey = "HealthBar",
                      relativePoint = "TOPLEFT", dy = 3},
@@ -126,6 +127,7 @@ DUF_FRAMES.Pet = {
                 width   = 16,
                 height  = 16,
                 count   = 9,
+                align   = "TOP",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "PowerBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},
