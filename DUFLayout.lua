@@ -1,4 +1,4 @@
-local PARTY_SPACING = -31
+local PARTY_SPACING = -31 - 8
 
 DUF_FRAMES.Layout = {
     {

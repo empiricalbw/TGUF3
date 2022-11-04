@@ -1,10 +1,12 @@
 local TG3Aura = {}
 
 function TG3Aura:_Init(elem)
-    local font      = elem.font or "Fonts/ARIALN.TTF"
-    local fontSize  = elem.fontSize or 10
-    local fontFlags = elem.fontFlags or "OUTLINE, MONOCHROME"
-    self.index      = elem.index
+    local font         = elem.font or "Fonts/ARIALN.TTF"
+    local fontSize     = elem.fontSize or 10
+    local fontFlags    = elem.fontFlags or "OUTLINE, MONOCHROME"
+    self.index         = elem.index
+    self.dimension     = elem.dimension
+    self.mineDimension = elem.mineDimension
 
     self.Count:SetFont(font, fontSize, fontFlags)
     self:SetScript("OnEnter", self.OnEnter)
@@ -28,6 +30,14 @@ function TG3Aura:UpdateAura(unit, aura)
             self.Cooldown:Show()
         else
             self.Cooldown:Hide()
+        end
+
+        if self.mineDimension and aura.source == "player" then
+            self:SetWidth(self.mineDimension)
+            self:SetHeight(self.mineDimension)
+        else
+            self:SetWidth(self.dimension)
+            self:SetHeight(self.dimension)
         end
 
         self:Show()

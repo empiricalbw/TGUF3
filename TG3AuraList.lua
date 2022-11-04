@@ -16,12 +16,14 @@ function TGUF3.AuraList:Init(elem, xml)
         f:SetWidth(dimension)
         f:SetHeight(dimension)
         if i == 1 then
-            f:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 0)
+            f:SetPoint(elem.align.."LEFT", self, elem.align.."LEFT", 0, 0)
         else
-            f:SetPoint("TOPLEFT", self.Frames[i-1], "TOPRIGHT", dx, dy)
+            f:SetPoint(elem.align.."LEFT", self.Frames[i-1],
+                       elem.align.."RIGHT", dx, dy)
         end
         f.unitFrame = self.unitFrame
-        f:Init({index = i})
+        f:Init({index = i, dimension = dimension,
+                mineDimension = elem.mineDimension})
         self.unitFrame.unit:AddListener(f)
         self.Frames[i] = f
     end
