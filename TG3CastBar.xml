@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+    <Frame name="TG3CastBarTemplate" mixin="TG3CastBarMixin" virtual="true">
+        <Frames>
+            <Frame parentKey="Icon" visible="true">
+                <Anchors>
+                    <Anchor point="LEFT"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture parentKey="Texture" setAllPoints="true"/>
+                    </Layer>
+                </Layers>
+            </Frame>
+            <Frame parentKey="SizeFrame">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeKey="$parent.Icon" relativePoint="TOPRIGHT"/>
+                    <Anchor point="BOTTOMRIGHT"/>
+                </Anchors>
+            </Frame>
+            <Frame parentKey="Bar">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeKey="$parent.Icon" relativePoint="TOPRIGHT"/>
+                    <Anchor point="BOTTOM"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture parentKey="Texture" file="Interface\AddOns\TGUF_2\DUF_Images\bg" setAllPoints="true"/>
+                    </Layer>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Spark" file="Interface\CastingBar\UI-CastingBar-Spark" alphaMode="ADD">
+                            <Size>
+                                <AbsDimension x="32" y="32"/>
+                            </Size>
+                            <Anchors>
+                                <Anchor point="CENTER" relativePoint="RIGHT"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                </Layers>
+            </Frame>
+        </Frames>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture setAllPoints="true">
+                    <Color r="0" g="0" b="0" a="0.5"/>
+                </Texture>
+            </Layer>
+        </Layers>
+    </Frame>
+</Ui>
