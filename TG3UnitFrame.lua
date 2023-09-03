@@ -21,6 +21,7 @@ function TGUF3.UnitFrame:Init(layout)
     RegisterUnitWatch(self)
     SecureUnitButton_OnLoad(self, layout.unit_id,
         function() self:MenuFunc() end)
+    self.trackRange = layout.trackRange
 
     -- Table of key frames.
     self.keyFrames = {}
@@ -61,4 +62,40 @@ end
 
 function TGUF3.UnitFrame:UPDATE_GUID(unit)
     TGUnitPopup.HideUnitPopup(unit.id)
+end
+
+function TGUF3.UnitFrame:UpdateVisibility()
+    if not self.trackRange then
+        return
+    end
+
+    if self.unit.reaction == TGU.REACTION_FRIENDLY then
+        if TGUF3.isHealer then
+            if self.unit.inHealingRange then
+                self:SetAlpha(1)
+            elseif self.unit.isVisible then
+                self:SetAlpha(0.3)
+            else
+                self:SetAlpha(0.065)
+            end
+        elseif self.unit.isVisible then
+            self:SetAlpha(1)
+        else
+            self:SetAlpha(0.125)
+        end
+    else
+        self:SetAlpha(1)
+    end
+end
+
+function TGUF3.UnitFrame:UPDATE_INHEALINGRANGE(unit)
+    self:UpdateVisibility()
+end
+
+function TGUF3.UnitFrame:UPDATE_ISVISIBLE(unit)
+    self:UpdateVisibility()
+end
+
+function TGUF3.UnitFrame:UPDATE_REACTION(unit)
+    self:UpdateVisibility()
 end
