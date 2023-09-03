@@ -39,11 +39,11 @@ DUF_FRAMES.Target = {
                 class   = TGUF3.HealthBar,
                 key     = "HealthBar",
                 color   = {0.271, 0.655, 0.529, 1},
+                height  = 20,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "Model",
-                     relativePoint = "TOPRIGHT",},
+                     relativePoint = "TOPRIGHT"},
                     {point = "RIGHT"},
-                    {point = "BOTTOM", relativePoint = "CENTER"},
                 },
 
                 elements = {
@@ -90,10 +90,11 @@ DUF_FRAMES.Target = {
             {
                 class   = TGUF3.PowerBar,
                 key     = "PowerBar",
+                height  = 14,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
                      relativePoint = "BOTTOMLEFT"},
-                    {point = "BOTTOMRIGHT", dy = 6},
+                    {point = "RIGHT"},
                 },
 
                 elements = {
@@ -103,7 +104,7 @@ DUF_FRAMES.Target = {
                         width   = 13,
                         height  = 13,
                         anchors = {
-                            {point = "LEFT", dx = 7, dy = 1},
+                            {point = "LEFT", dx = 7},
                         },
                     },
 
@@ -138,12 +139,35 @@ DUF_FRAMES.Target = {
                 }
             },
 
+            -- Cast bar.
+            {
+                class   = TGUF3.CastBar,
+                key     = "CastBar",
+                height  = 14,
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "RIGHT"},
+                },
+
+                elements = {
+                    -- Spell string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "-$sp-",
+                        alignH   = "CENTER",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
+                    },
+                }
+            },
+
             -- Threat bar.
             {
                 class   = TGUF3.ThreatTexture,
                 key     = "Threat",
                 anchors = {
-                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                    {point = "TOPLEFT", relativeKey = "CastBar",
                      relativePoint = "BOTTOMLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
@@ -158,8 +182,8 @@ DUF_FRAMES.Target = {
                         font     = "DUF_Font1.ttf",
                         fontSize = 8,
                         anchors  = {
-                            {point = "TOPLEFT", dy = 1},
-                            {point = "BOTTOMRIGHT", dy = 1},
+                            {point = "TOPLEFT"},
+                            {point = "BOTTOMRIGHT"},
                         },
                     },
 
@@ -172,8 +196,8 @@ DUF_FRAMES.Target = {
                         font     = "DUF_Font1.ttf",
                         fontSize = 8,
                         anchors  = {
-                            {point = "TOPLEFT", dy = 1},
-                            {point = "BOTTOMRIGHT", dx = -5, dy = 1},
+                            {point = "TOPLEFT"},
+                            {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
                 },

@@ -20,10 +20,10 @@ DUF_FRAMES.Generic = {
                 class   = TGUF3.HealthBar,
                 key     = "HealthBar",
                 color   = {0.271, 0.655, 0.529, 1},
+                pheight = 0.334,
                 anchors = {
                     {point = "TOPLEFT"},
                     {point = "RIGHT"},
-                    {point = "BOTTOM", relativePoint = "CENTER"},
                 },
 
                 elements = {
@@ -43,10 +43,10 @@ DUF_FRAMES.Generic = {
                         key      = "Name",
                         text     = "$nm",
                         alignH   = "LEFT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOPLEFT", dx = 25, dy = -2},
+                            {point = "TOPLEFT", dx = 25},
                             {point = "BOTTOMRIGHT", dx = -30},
                         },
                     },
@@ -56,7 +56,7 @@ DUF_FRAMES.Generic = {
                         class    = TGUF3.String,
                         text     = "$hc/$hm",
                         alignH   = "RIGHT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
                             {point = "TOPLEFT", relativeKey = "Name"},
@@ -70,10 +70,11 @@ DUF_FRAMES.Generic = {
             {
                 class   = TGUF3.PowerBar,
                 key     = "PowerBar",
+                pheight = 0.333,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
                      relativePoint = "BOTTOMLEFT"},
-                    {point = "BOTTOMRIGHT"},
+                    {point = "RIGHT"},
                 },
 
                 elements = {
@@ -83,10 +84,10 @@ DUF_FRAMES.Generic = {
                         key      = "ClassLevel",
                         text     = "$lv $ccl",
                         alignH   = "LEFT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
-                            {point = "TOP", dy = -2},
+                            {point = "TOP"},
                             {point = "BOTTOM"},
                             {point = "LEFT", relativeKey = "Name"},
                             {point = "RIGHT", relativeKey = "Name"},
@@ -98,12 +99,34 @@ DUF_FRAMES.Generic = {
                         class    = TGUF3.String,
                         text     = "$pc/$pm",
                         alignH   = "RIGHT",
-                        alignV   = "TOP",
+                        alignV   = "MIDDLE",
                         font     = "DUF_Font1.ttf",
                         anchors  = {
                             {point = "TOPLEFT", relativeKey = "ClassLevel"},
                             {point = "BOTTOMRIGHT", dx = -5},
                         },
+                    },
+                }
+            },
+
+            -- Cast bar.
+            {
+                class   = TGUF3.CastBar,
+                key     = "CastBar",
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "BOTTOMRIGHT"},
+                },
+
+                elements = {
+                    -- Spell string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "-$sp-",
+                        alignH   = "CENTER",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
                     },
                 }
             },
@@ -127,7 +150,7 @@ DUF_FRAMES.Generic = {
                 height  = 16,
                 align   = "TOP",
                 anchors = {
-                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                    {point = "TOPLEFT", relativeKey = "CastBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},
                 }
             },

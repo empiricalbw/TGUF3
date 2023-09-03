@@ -69,10 +69,10 @@ DUF_FRAMES.Player = {
                 class   = TGUF3.HealthBar,
                 key     = "HealthBar",
                 color   = {0.271, 0.655, 0.529, 1},
+                pheight = 0.5,
                 anchors = {
                     {point = "TOPLEFT"},
                     {point = "RIGHT"},
-                    {point = "BOTTOM", relativePoint = "CENTER"},
                 },
 
                 elements = {
@@ -148,11 +148,13 @@ DUF_FRAMES.Player = {
 
             -- Power bar.
             {
-                class    = TGUF3.PowerBar,
+                class   = TGUF3.PowerBar,
+                key     = "PowerBar",
+                pheight = 0.25,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HorizDivider",
                      relativePoint = "BOTTOMLEFT"},
-                    {point = "BOTTOMRIGHT"},
+                    {point = "RIGHT"},
                 },
 
                 elements = {
@@ -167,6 +169,29 @@ DUF_FRAMES.Player = {
                             {point = "TOPLEFT"},
                             {point = "BOTTOMRIGHT", dx = -5},
                         },
+                    },
+                }
+            },
+
+            -- Cast bar.
+            {
+                class   = TGUF3.CastBar,
+                key     = "CastBar",
+                height  = 14,
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "BOTTOMRIGHT"},
+                },
+
+                elements = {
+                    -- Spell string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "-$sp-",
+                        alignH   = "CENTER",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
                     },
                 }
             },

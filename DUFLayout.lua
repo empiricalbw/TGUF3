@@ -39,7 +39,7 @@ DUF_FRAMES.Layout = {
     {
         unit_id  = "target",
         width    = 252,
-        height   = 50,
+        height   = 66,
         elements = DUF_FRAMES.Target,
         anchor  = {
             point = "TOPLEFT",
@@ -79,7 +79,7 @@ for i=1, 4 do
     local dy
     if i == 1 then
         relativeUnit = "player"
-        dy           = PARTY_SPACING + 14
+        dy           = PARTY_SPACING
     else
         relativeUnit = "party"..tostring(i - 1)
         dy           = PARTY_SPACING
