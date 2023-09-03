@@ -1,6 +1,8 @@
 TGUF3.Element = {}
 TG3ElementMixin = TGUF3.Element
 
+local _, PLAYER_CLASS = UnitClass("player")
+
 function TGUF3.Element.MakeElem(unitFrame, parent, elem)
     local f = CreateFrame(elem.class._ftype or "Frame", nil, parent,
                           elem.class._xml)
@@ -33,15 +35,17 @@ function TGUF3.Element.MakeElems(unitFrame, parent, elements)
     parent.children = {}
     for _, e in ipairs(elements) do
         --print("Instantiating "..e.class._name)
-        local elem = TGUF3.Element.MakeElem(unitFrame, parent, e)
-        table.insert(parent.children, elem)
+        if not e.playerClass or e.playerClass == PLAYER_CLASS then
+            local elem = TGUF3.Element.MakeElem(unitFrame, parent, e)
+            table.insert(parent.children, elem)
 
-        if e.key then
-            unitFrame.keyFrames[e.key] = elem
-        end
+            if e.key then
+                unitFrame.keyFrames[e.key] = elem
+            end
 
-        if e.elements then
-            TGUF3.Element.MakeElems(unitFrame, elem, e.elements)
+            if e.elements then
+                TGUF3.Element.MakeElems(unitFrame, elem, e.elements)
+            end
         end
     end
 end

@@ -19,7 +19,9 @@ function TGUF3.ADDON_LOADED(addOnName)
     end
 
     for i, layout in ipairs(DUF_FRAMES.Layout) do
-        TGUF3.UnitFrame:New(layout)
+        if not layout.playerClass or layout.playerClass == PLAYER_CLASS then
+            TGUF3.UnitFrame:New(layout)
+        end
     end
 
     TGUF3.DisableBlizzardFrames()
