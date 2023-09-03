@@ -37,54 +37,6 @@ DUF_FRAMES.Layout = {
         },
     },
     {
-        unit_id  = "party1",
-        width    = 202,
-        height   = 52,
-        elements = DUF_FRAMES.Party,
-        anchor   = {
-            point         = "TOPLEFT",
-            relativeUnit  = "player",
-            relativePoint = "BOTTOMLEFT",
-            dy            = PARTY_SPACING + 14,
-        }
-    },
-    {
-        unit_id  = "party2",
-        width    = 202,
-        height   = 52,
-        elements = DUF_FRAMES.Party,
-        anchor   = {
-            point         = "TOPLEFT",
-            relativeUnit  = "party1",
-            relativePoint = "BOTTOMLEFT",
-            dy            = PARTY_SPACING,
-        }
-    },
-    {
-        unit_id  = "party3",
-        width    = 202,
-        height   = 52,
-        elements = DUF_FRAMES.Party,
-        anchor   = {
-            point         = "TOPLEFT",
-            relativeUnit  = "party2",
-            relativePoint = "BOTTOMLEFT",
-            dy            = PARTY_SPACING,
-        }
-    },
-    {
-        unit_id  = "party4",
-        width    = 202,
-        height   = 52,
-        elements = DUF_FRAMES.Party,
-        anchor   = {
-            point         = "TOPLEFT",
-            relativeUnit  = "party3",
-            relativePoint = "BOTTOMLEFT",
-            dy            = PARTY_SPACING,
-        }
-    },
-    {
         unit_id  = "target",
         width    = 252,
         height   = 50,
@@ -120,3 +72,32 @@ DUF_FRAMES.Layout = {
         },
     },
 }
+
+-- Add party frames.
+for i=1, 4 do
+    local relativeUnit
+    local dy
+    if i == 1 then
+        relativeUnit = "player"
+        dy           = PARTY_SPACING + 14
+    else
+        relativeUnit = "party"..tostring(i - 1)
+        dy           = PARTY_SPACING
+    end
+
+    local f = {
+        unit_id    = "party"..tostring(i),
+        width      = 202,
+        height     = 52,
+        elements   = DUF_FRAMES.Party,
+        hideInRaid = true,
+        anchor     = {
+            point         = "TOPLEFT",
+            relativeUnit  = relativeUnit,
+            relativePoint = "BOTTOMLEFT",
+            dy            = dy,
+        }
+    }
+
+    table.insert(DUF_FRAMES.Layout, f)
+end
