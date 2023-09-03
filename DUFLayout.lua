@@ -101,3 +101,22 @@ for i=1, 4 do
 
     table.insert(DUF_FRAMES.Layout, f)
 end
+
+-- Add party pet frames.
+for i=1, 4 do
+    local f = {
+        unit_id  = "partypet"..tostring(i),
+        width    = 125,
+        height   = 38,
+        elements = DUF_FRAMES.Pet,
+        hideInRaid = true,
+        anchor   = {
+            point         = "LEFT",
+            relativeUnit  = "party"..tostring(i),
+            relativePoint = "RIGHT",
+            dx            = -3,
+        },
+    }
+
+    table.insert(DUF_FRAMES.Layout, f)
+end
