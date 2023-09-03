@@ -171,6 +171,19 @@ DUF_FRAMES.Player = {
                 }
             },
 
+            -- Debuffs.
+            {
+                class         = TGUF3.DebuffList,
+                width         = 16,
+                height        = 16,
+                mineDimension = 20,
+                align         = "TOP",
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "CastBar",
+                     relativePoint = "BOTTOMLEFT", dy = -3},
+                }
+            },
+
             -- Role icon.
             {
                 strata   = "MEDIUM",
