@@ -1,6 +1,17 @@
 TGUF3 = {
-    Frames = {},
+    Frames      = {},
+    isHealer    = nil,
 }
+
+local HEALING_CLASSES = {
+    ["PRIEST"]  = 1,
+    ["DRUID"]   = 1,
+    ["SHAMAN"]  = 1,
+    ["PALADIN"] = 1,
+}
+
+local _, PLAYER_CLASS = UnitClass("player")
+TGUF3.isHealer = (HEALING_CLASSES[PLAYER_CLASS] ~= nil)
 
 function TGUF3.ADDON_LOADED(addOnName)
     if addOnName ~= "TGUF3" then
