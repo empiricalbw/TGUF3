@@ -179,7 +179,15 @@ local substitutionTable = {
         func = function(unit)
             return unit.threat.window or ""
         end
-    }
+    },
+
+    -- Spell name.
+    ["$sp"] = {
+        flag = TGU.FLAGS.SPELL,
+        func = function(unit)
+            return unit.castInfo.spell or ""
+        end
+    },
 }
 
 function TGUF3.String:Init(elem)
