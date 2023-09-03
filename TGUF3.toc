@@ -1,7 +1,7 @@
 ## Interface: 11404
 ## Title: TGUF3
 ## Author: Empirical
-## Version 1.0a1
+## Version: 1.0a1
 ## DefaultState: enabled
 ## Notes: Thor's Godly unit frames
 ## URL: 
