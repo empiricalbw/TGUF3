@@ -4,6 +4,7 @@
 --  Dynamic substitutions:
 --
 --      $nm  - unit name
+--      $nc  - unit name colored according to class
 --      $hc  - current health
 --      $hm  - maximum health
 --      $pc  - current power
@@ -32,6 +33,20 @@ TGUF3.String = {
 }
 TG3StringMixin = TGUF3.String
 
+local RAID_COLOR_CODES = {
+    ["HUNTER"]      = "|cffabd473",
+    ["WARLOCK"]     = "|cff9482c9",
+    ["PRIEST"]      = "|cffffffff",
+    ["PALADIN"]     = "|cfff58cba",
+    ["MAGE"]        = "|cff69ccf0",
+    ["ROGUE"]       = "|cfffff569",
+    ["DRUID"]       = "|cffff7d0a",
+    ["SHAMAN"]      = "|cff2459ff",
+    ["WARRIOR"]     = "|cffc79c6e",
+    ["DEATHKNIGHT"] = "|cffc41f3b",
+    ["MONK"]        = "|cff00ff96",
+}
+
 -- Convert a long number into one with K or M appended.
 local function SINumber(v)
     if not v then
@@ -54,6 +69,19 @@ local substitutionTable = {
         flag = TGU.FLAGS.NAME,
         func = function(unit)
             return unit.name or ""
+        end
+    },
+
+    -- Name colored by class.
+    ["$nc"] = {
+        flag = bit.bor(TGU.FLAGS.NAME,
+                       TGU.FLAGS.CLASS),
+        func = function(unit)
+			if unit.name and unit.class.localized then
+                return (RAID_COLOR_CODES[unit.class.name]..unit.name..
+                        FONT_COLOR_CODE_CLOSE)
+			end
+            return ""
         end
     },
 
