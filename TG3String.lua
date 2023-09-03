@@ -12,6 +12,7 @@
 --      $lv  - level
 --      $cl  - class
 --      $ccl - creature type if unit is NPC otherwise class
+--      $cp  - number of combo points on unit
 --
 --  Required attributes:
 --
@@ -186,6 +187,14 @@ local substitutionTable = {
         flag = TGU.FLAGS.SPELL,
         func = function(unit)
             return unit.castInfo.spell or ""
+        end
+    },
+
+    -- Number of combo points.
+    ["$cp"] = {
+        flag = TGU.FLAGS.COMBOPOINTS,
+        func = function(unit)
+            return unit.comboPoints or ""
         end
     },
 }

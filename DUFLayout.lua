@@ -48,6 +48,20 @@ DUF_FRAMES.Layout = {
         },
     },
     {
+        unit_id     = "player",
+        is_alias    = 1,
+        playerClass = "ROGUE",
+        width       = 240,
+        height      = 1,
+        elements    = DUF_FRAMES.ComboPoints,
+        anchor = {
+            point         = "BOTTOMLEFT",
+            relativeUnit  = "target",
+            relativePoint = "TOPLEFT",
+            dy            = 32,
+        },
+    },
+    {
         unit_id  = "targettarget",
         width    = 182,
         height   = 42,

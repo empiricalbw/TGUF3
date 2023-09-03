@@ -52,6 +52,7 @@ TG3UnitFrame.lua
 DUFFrames.lua
 DUFPlayerFrame.lua
 DUFTargetFrame.lua
+DUFComboFrame.lua
 DUFPartyFrame.lua
 DUFRaidFrame.lua
 DUFPetFrame.lua
