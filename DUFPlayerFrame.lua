@@ -91,7 +91,7 @@ DUF_FRAMES.Player = {
                     {
                         class    = TGUF3.String,
                         key      = "Name",
-                        text     = "$nm",
+                        text     = "$nc",
                         alignH   = "LEFT",
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
