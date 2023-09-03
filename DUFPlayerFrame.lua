@@ -202,7 +202,7 @@ DUF_FRAMES.Player = {
                 width         = 16,
                 height        = 16,
                 mineDimension = 20,
-                align         = "TOP",
+                valign        = "TOP",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "CastBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},

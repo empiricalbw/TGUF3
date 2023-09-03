@@ -136,7 +136,7 @@ DUF_FRAMES.Generic = {
                 class   = TGUF3.BuffList,
                 width   = 16,
                 height  = 16,
-                align   = "BOTTOM",
+                valign  = "BOTTOM",
                 anchors = {
                     {point = "BOTTOMLEFT", relativeKey = "HealthBar",
                      relativePoint = "TOPLEFT", dy = 3},
@@ -148,7 +148,7 @@ DUF_FRAMES.Generic = {
                 class   = TGUF3.DebuffList,
                 width   = 16,
                 height  = 16,
-                align   = "TOP",
+                valign  = "TOP",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "CastBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},
