@@ -10,8 +10,56 @@ local HEALING_CLASSES = {
     ["PALADIN"] = 1,
 }
 
+local CURE_MAGIC_CLASSES = {
+    ["PALADIN"] = 1,    -- Cleanse
+    ["PRIEST"]  = 1,    -- Dispel Magic / Mass Dispel
+    ["WARLOCK"] = 1,    -- Felhunter's Devour Magic / Doomguard's Dispel
+}
+
+local CURE_DISEASE_CLASSES = {
+    ["PALADIN"] = 1,    -- Cleanse
+    ["SHAMAN"]  = 1,    -- Cure Toxins / Cleanse Spirit / Cleansing Totem
+    ["PRIEST"]  = 1,    -- Abolish / Cure Disease
+}
+
+local CURE_CURSE_CLASSES = {
+    ["DRUID"]   = 1,    -- Remove Curse
+    ["MAGE"]    = 1,    -- Remove Curse
+    ["SHAMAN"]  = 1,    -- Cleanse Spirit
+}
+
+local CURE_POISON_CLASSES = {
+    ["DRUID"]   = 1,    -- Abolish / Cure Poison
+    ["PALADIN"] = 1,    -- Cleanse / Purify
+    ["SHAMAN"]  = 1,    -- Cure Toxins / Cleanse Spirit / Cleansing Totem
+}
+
+local DISPEL_MAGIC_CLASSES = {
+    ["DEATHKNIGHT"] = 1,    -- Glyphed Icy Touch
+    ["HUNTER"]      = 1,    -- Tranquilizing Shot
+    ["PRIEST"]      = 1,    -- Dispel Magic / Mass Dispel
+    ["SHAMAN"]      = 1,    -- Purge
+    ["WARLOCK"]     = 1,    -- Felhunter's Devour Magic / Doomguard's Dispel
+    ["WARRIOR"]     = 1,    -- Shield Slam
+}
+
+local DISPEL_ENRAGE_CLASSES = {
+    ["HUNTER"]  = 1,    -- Tranquilizing Shot
+}
+
+local STEAL_CLASSES = {
+    ["MAGE"]        = 1,    -- Spellsteal
+}
+
 local _, PLAYER_CLASS = UnitClass("player")
-TGUF3.isHealer = (HEALING_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.isHealer        = (HEALING_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canCureMagic    = (CURE_MAGIC_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canCureDisease  = (CURE_DISEASE_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canCureCurse    = (CURE_CURSE_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canCurePoison   = (CURE_POISON_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canDispelMagic  = (DISPEL_MAGIC_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canDispelEnrage = (DISPEL_ENRAGE_CLASSES[PLAYER_CLASS] ~= nil)
+TGUF3.canSteal        = (STEAL_CLASSES[PLAYER_CLASS] ~= nil)
 
 function TGUF3.ADDON_LOADED(addOnName)
     if addOnName ~= "TGUF3" then

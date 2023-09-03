@@ -5,6 +5,7 @@ DUF_FRAMES.Player = {
         edgeFile  = "Interface/Tooltips/UI-Tooltip-Border",
         edgeSize  = 20,
         edgeColor = {1, 1, 1, 1},
+        colorize  = true,
     },
     {
         class   = TGUF3.Texture,
