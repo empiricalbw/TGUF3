@@ -4,9 +4,20 @@ TGUF3.AuraList = {
 }
 TG3AuraListMixin = TGUF3.AuraList
 
+local OPP_DIR = {
+    ["RIGHT"] = "LEFT",
+    ["LEFT"]  = "RIGHT",
+}
+local DX_DIR = {
+    ["RIGHT"] = 2,
+    ["LEFT"]  = -2,
+}
+
 function TGUF3.AuraList:Init(elem, xml)
     local count     = elem.count or 32
-    local dx        = elem.dx or 2
+    local dir       = elem.direction or "RIGHT"
+    local oppdir    = OPP_DIR[dir]
+    local dx        = elem.dx or DX_DIR[dir]
     local dy        = elem.dy or 0
     local dimension = self:GetHeight()
 
@@ -16,10 +27,10 @@ function TGUF3.AuraList:Init(elem, xml)
         f:SetWidth(dimension)
         f:SetHeight(dimension)
         if i == 1 then
-            f:SetPoint(elem.align.."LEFT", self, elem.align.."LEFT", 0, 0)
+            f:SetPoint(elem.valign..oppdir, self, elem.valign..oppdir, 0, 0)
         else
-            f:SetPoint(elem.align.."LEFT", self.children[i-1],
-                       elem.align.."RIGHT", dx, dy)
+            f:SetPoint(elem.valign..oppdir, self.children[i-1],
+                       elem.valign..dir, dx, dy)
         end
         f.unitFrame = self.unitFrame
         f:Init({index = i, dimension = dimension,

@@ -165,7 +165,7 @@ DUF_FRAMES.Party = {
                 width         = 16,
                 height        = 16,
                 mineDimension = 20,
-                align         = "BOTTOM",
+                valign        = "BOTTOM",
                 anchors = {
                     {point = "BOTTOMLEFT", relativeKey = "HealthBar",
                      relativePoint = "TOPLEFT", dy = 3},
@@ -178,7 +178,7 @@ DUF_FRAMES.Party = {
                 width         = 16,
                 height        = 16,
                 mineDimension = 20,
-                align         = "TOP",
+                valign        = "TOP",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "PowerBar",
                      relativePoint = "BOTTOMLEFT", dy = -3},
