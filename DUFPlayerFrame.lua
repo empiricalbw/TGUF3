@@ -149,6 +149,7 @@ DUF_FRAMES.Player = {
             -- Power bar.
             {
                 class    = TGUF3.PowerBar,
+                key      = "PowerBar",
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HorizDivider",
                      relativePoint = "BOTTOMLEFT"},
@@ -168,6 +169,19 @@ DUF_FRAMES.Player = {
                             {point = "BOTTOMRIGHT", dx = -5},
                         },
                     },
+                }
+            },
+
+            -- Debuffs.
+            {
+                class         = TGUF3.DebuffList,
+                width         = 16,
+                height        = 16,
+                mineDimension = 20,
+                align         = "TOP",
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT", dy = -3},
                 }
             },
 
