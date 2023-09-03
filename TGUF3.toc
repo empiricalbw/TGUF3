@@ -51,6 +51,7 @@ DUFFrames.lua
 DUFPlayerFrame.lua
 DUFTargetFrame.lua
 DUFPartyFrame.lua
+DUFRaidFrame.lua
 DUFPetFrame.lua
 DUFPetTargetFrame.lua
 DUFGenericFrame.lua

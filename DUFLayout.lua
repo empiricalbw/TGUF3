@@ -108,3 +108,58 @@ for i=1, 4 do
 
     table.insert(DUF_FRAMES.Layout, f)
 end
+
+-- Add raid frames.
+local raid1 = {
+    unit_id    = "raid1",
+    width      = 100,
+    height     = 16,
+    elements   = DUF_FRAMES.RaidLeft,
+    trackRange = true,
+    anchor     = {
+        point         = "TOPLEFT",
+        relativeUnit  = "player",
+        relativePoint = "BOTTOMLEFT",
+        dx            = 20,
+        dy            = PARTY_SPACING + 16,
+    },
+}
+table.insert(DUF_FRAMES.Layout, raid1)
+
+local raid2 = {
+    unit_id    = "raid2",
+    width      = 100,
+    height     = 16,
+    elements   = DUF_FRAMES.RaidRight,
+    trackRange = true,
+    anchor     = {
+        point         = "TOPLEFT",
+        relativeUnit  = "raid1",
+        relativePoint = "TOPRIGHT",
+        dx            = 1,
+    },
+}
+table.insert(DUF_FRAMES.Layout, raid2)
+
+local RAID_FRAME = {
+    [0] = DUF_FRAMES.RaidRight,
+    [1] = DUF_FRAMES.RaidLeft,
+}
+
+for i=3, 40 do
+    local relativeUnit = "raid"..tostring(i - 2)
+    local f = {
+        unit_id    = "raid"..tostring(i),
+        width      = 100,
+        height     = 16,
+        elements   = RAID_FRAME[i % 2],
+        trackRange = true,
+        anchor     = {
+            point         = "TOPLEFT",
+            relativeUnit  = relativeUnit,
+            relativePoint = "BOTTOMLEFT",
+            dy            = -1,
+        },
+    }
+    table.insert(DUF_FRAMES.Layout, f)
+end
