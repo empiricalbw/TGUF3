@@ -50,6 +50,16 @@ function TGUF3.Element.MakeElems(unitFrame, parent, elements)
     end
 end
 
+function TGUF3.Element.Reassign(f, old_unit, new_unit)
+    if f.children then
+        for _, c in ipairs(f.children) do
+            old_unit:RemoveListener(c)
+            TGUF3.Element.Reassign(c, old_unit, new_unit)
+            new_unit:AddListener(c)
+        end
+    end
+end
+
 function TGUF3.Element.SetAnchor(f, anchor)
     local parent        = f:GetParent()
     local point         = anchor.point

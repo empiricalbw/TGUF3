@@ -56,6 +56,7 @@ DUF_FRAMES.Player = {
             -- Target highlight.
             {
                 class = TGUF3.Texture,
+                -- strata = "MEDIUM",
                 frameLevel = 200,
                 anchors = {
                     {point = "TOPLEFT"},
