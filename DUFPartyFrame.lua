@@ -184,6 +184,17 @@ DUF_FRAMES.Party = {
                      relativePoint = "BOTTOMLEFT", dy = -3},
                 }
             },
+
+            -- Role icon.
+            {
+                strata   = "MEDIUM",
+                class    = TGUF3.RoleIconTexture,
+                width    = 20,
+                height   = 20,
+                anchors = {
+                    {point = "CENTER", relativePoint = "BOTTOMLEFT"},
+                },
+            },
         }
     },
 }
