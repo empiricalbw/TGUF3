@@ -15,9 +15,13 @@ function TGUF3.Element.MakeElem(unitFrame, parent, elem)
     TGUF3.Element.SetAnchors(f, elem.anchors)
     if elem.width then
         f:SetWidth(elem.width)
+    elseif elem.pwidth then
+        f:SetWidth(elem.pwidth * parent:GetWidth())
     end
     if elem.height then
         f:SetHeight(elem.height)
+    elseif elem.pheight then
+        f:SetHeight(elem.pheight * parent:GetHeight())
     end
 
     f:Init(elem)
