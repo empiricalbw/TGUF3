@@ -170,6 +170,17 @@ DUF_FRAMES.Player = {
                     },
                 }
             },
+
+            -- Role icon.
+            {
+                strata   = "MEDIUM",
+                class    = TGUF3.RoleIconTexture,
+                width    = 20,
+                height   = 20,
+                anchors = {
+                    {point = "CENTER", relativePoint = "BOTTOMLEFT"},
+                },
+            },
         }
     },
 }
