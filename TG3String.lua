@@ -12,6 +12,7 @@
 --      $lv  - level
 --      $cl  - class
 --      $ccl - creature type if unit is NPC otherwise class
+--      $cp  - number of combo points on unit
 --
 --  Required attributes:
 --
@@ -179,7 +180,15 @@ local substitutionTable = {
         func = function(unit)
             return unit.threat.window or ""
         end
-    }
+    },
+
+    -- Number of combo points.
+    ["$cp"] = {
+        flag = TGU.FLAGS.COMBOPOINTS,
+        func = function(unit)
+            return unit.comboPoints or ""
+        end
+    },
 }
 
 function TGUF3.String:Init(elem)

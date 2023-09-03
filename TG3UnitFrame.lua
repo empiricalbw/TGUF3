@@ -38,16 +38,18 @@ function TGUF3.UnitFrame:Init(layout)
     TGUF3.Element.MakeElems(self, self, layout.elements)
 
     -- Record this unit frame.
-    TGUF3.Frames[self.unit.id] = self
-    if self.unit.id:find("^partypet") then
+    if not layout.is_alias then
+        TGUF3.Frames[self.unit.id] = self
+        if self.unit.id:find("^partypet") then
             -- Nothing.
-    elseif self.unit.id:find("^party") then
-        local pk = tonumber(self.unit.id:sub(6))
-        TGUF3.PartyFrames[pk] = self
-        self.partyFrameIndex  = pk
-    elseif self.unit.id:find("^raid") then
-        local rk = tonumber(self.unit.id:sub(5))
-        TGUF3.RaidFrames[rk] = self
+        elseif self.unit.id:find("^party") then
+            local pk = tonumber(self.unit.id:sub(6))
+            TGUF3.PartyFrames[pk] = self
+            self.partyFrameIndex  = pk
+        elseif self.unit.id:find("^raid") then
+            local rk = tonumber(self.unit.id:sub(5))
+            TGUF3.RaidFrames[rk] = self
+        end
     end
 
     -- Update the unit frame.
