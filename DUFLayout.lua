@@ -93,6 +93,7 @@ for i=1, 4 do
         height     = 52,
         elements   = DUF_FRAMES.Party,
         hideInRaid = true,
+        trackRange = true,
         anchor     = {
             point         = "TOPLEFT",
             relativeUnit  = relativeUnit,
