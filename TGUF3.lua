@@ -69,10 +69,6 @@ local DISPEL_ENRAGE_CLASSES = {
     ["HUNTER"]  = 1,    -- Tranquilizing Shot
 }
 
-local STEAL_CLASSES = {
-    ["MAGE"]        = 1,    -- Spellsteal
-}
-
 local _, PLAYER_CLASS = UnitClass("player")
 TGUF3.isHealer        = (HEALING_CLASSES[PLAYER_CLASS] ~= nil)
 TGUF3.canCureMagic    = (CURE_MAGIC_CLASSES[PLAYER_CLASS] ~= nil)
@@ -81,7 +77,6 @@ TGUF3.canCureCurse    = (CURE_CURSE_CLASSES[PLAYER_CLASS] ~= nil)
 TGUF3.canCurePoison   = (CURE_POISON_CLASSES[PLAYER_CLASS] ~= nil)
 TGUF3.canDispelMagic  = (DISPEL_MAGIC_CLASSES[PLAYER_CLASS] ~= nil)
 TGUF3.canDispelEnrage = (DISPEL_ENRAGE_CLASSES[PLAYER_CLASS] ~= nil)
-TGUF3.canSteal        = (STEAL_CLASSES[PLAYER_CLASS] ~= nil)
 
 function TGUF3.ADDON_LOADED(addOnName)
     if addOnName ~= "TGUF3" then
