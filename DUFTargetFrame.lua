@@ -40,11 +40,11 @@ DUF_FRAMES.Target = {
                 class   = TGUF3.HealthBar,
                 key     = "HealthBar",
                 color   = {0.271, 0.655, 0.529, 1},
+                height  = 20,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "Model",
                      relativePoint = "TOPRIGHT",},
                     {point = "RIGHT"},
-                    {point = "BOTTOM", relativePoint = "CENTER"},
                 },
 
                 elements = {
@@ -91,10 +91,11 @@ DUF_FRAMES.Target = {
             {
                 class   = TGUF3.PowerBar,
                 key     = "PowerBar",
+                height  = 14,
                 anchors = {
                     {point = "TOPLEFT", relativeKey = "HealthBar",
                      relativePoint = "BOTTOMLEFT"},
-                    {point = "BOTTOMRIGHT", dy = 6},
+                    {point = "RIGHT"},
                 },
 
                 elements = {
@@ -139,12 +140,35 @@ DUF_FRAMES.Target = {
                 }
             },
 
+            -- Cast bar.
+            {
+                class   = TGUF3.CastBar,
+                key     = "CastBar",
+                height  = 14,
+                anchors = {
+                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                     relativePoint = "BOTTOMLEFT"},
+                    {point = "RIGHT"},
+                },
+
+                elements = {
+                    -- Spell string.
+                    {
+                        class    = TGUF3.String,
+                        text     = "-$sp-",
+                        alignH   = "CENTER",
+                        alignV   = "MIDDLE",
+                        font     = "DUF_Font1.ttf",
+                    },
+                }
+            },
+
             -- Threat bar.
             {
                 class   = TGUF3.ThreatTexture,
                 key     = "Threat",
                 anchors = {
-                    {point = "TOPLEFT", relativeKey = "PowerBar",
+                    {point = "TOPLEFT", relativeKey = "CastBar",
                      relativePoint = "BOTTOMLEFT"},
                     {point = "BOTTOMRIGHT"},
                 },
