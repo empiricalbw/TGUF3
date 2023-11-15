@@ -39,7 +39,7 @@ DUF_FRAMES.Layout = {
     {
         unit_id  = "target",
         width    = 252,
-        height   = 50,
+        height   = 66,
         elements = DUF_FRAMES.Target,
         anchor  = {
             point = "TOPLEFT",
@@ -77,15 +77,12 @@ DUF_FRAMES.Layout = {
 
 -- Add party frames.
 for i=1, 4 do
-    local relativeUnit
-    local dy
-    if i == 1 then
-        relativeUnit = "player"
-        dy           = PARTY_SPACING + 14
-    else
-        relativeUnit = "party"..tostring(i - 1)
-        dy           = PARTY_SPACING
-    end
+    local relativeUnit = {
+        "player",
+        "party1",
+        "party2",
+        "party3",
+    }
 
     local f = {
         unit_id    = "party"..tostring(i),
@@ -93,11 +90,12 @@ for i=1, 4 do
         height     = 52,
         elements   = DUF_FRAMES.Party,
         hideInRaid = true,
+        trackRange = true,
         anchor     = {
             point         = "TOPLEFT",
-            relativeUnit  = relativeUnit,
+            relativeUnit  = relativeUnit[i],
             relativePoint = "BOTTOMLEFT",
-            dy            = dy,
+            dy            = PARTY_SPACING,
         }
     }
 
@@ -112,6 +110,7 @@ for i=1, 4 do
         height   = 38,
         elements = DUF_FRAMES.Pet,
         hideInRaid = true,
+        trackRange = true,
         anchor   = {
             point         = "LEFT",
             relativeUnit  = "party"..tostring(i),

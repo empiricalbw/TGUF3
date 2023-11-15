@@ -68,8 +68,6 @@ function TGUF3.Border:UPDATE_BUFFS(unit)
         self:SetBackdropBorderColor(unpack(self.magicColor))
     elseif TGUF3.canDispelEnrage and unit.buffCounts.Enrage > 0 then
         self:SetBackdropBorderColor(unpack(self.enrageColor))
-    elseif TGUF3.canSteal and unit.buffCounts.Stealable > 0 then
-        self:SetBackdropBorderColor(unpack(self.magicColor))
     else
         self:SetBackdropBorderColor(unpack(self.edgeColor))
     end

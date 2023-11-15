@@ -189,6 +189,17 @@ local substitutionTable = {
             return unit.comboPoints or ""
         end
     },
+
+    -- Name of current spellcast.
+    ["$sp"] = {
+        flag = TGU.FLAGS.CLEU_SPELL,
+        func = function(unit)
+            if unit.cleuCastInfo.spellInfo ~= nil then
+                return unit.cleuCastInfo.spellInfo.name
+            end
+            return ""
+        end
+    },
 }
 
 function TGUF3.String:Init(elem)
