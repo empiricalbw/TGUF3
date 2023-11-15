@@ -192,12 +192,9 @@ local substitutionTable = {
 
     -- Name of current spellcast.
     ["$sp"] = {
-        flag = TGU.FLAGS.CLEU_SPELL,
+        flag = TGU.FLAGS.SPELL,
         func = function(unit)
-            if unit.cleuCastInfo.spellInfo ~= nil then
-                return unit.cleuCastInfo.spellInfo.name
-            end
-            return ""
+            return unit.castInfo.spell or ""
         end
     },
 }

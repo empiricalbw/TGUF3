@@ -28,49 +28,49 @@ local BAR_COLORS = {
 
 function TGUF3.CastBar:Init(elem)
     local texture = elem.texture or "Interface/Addons/TGUF3/DUF_Images/bg"
+    self.Icon:SetWidth(self:GetHeight())
+    self.Icon:SetHeight(self:GetHeight())
+    self.Icon:Hide()
     self.Bar.Texture:SetTexture(texture)
     self.Bar:Hide()
     self.Bar:SetScript("OnUpdate", function() self:OnUpdate() end)
     self.realWidth = self.SizeFrame:GetWidth()
 end
 
-function TGUF3.CastBar:UPDATE_CLEU_SPELL(unit)
-    local castInfo = unit.cleuCastInfo
-    if unit.exists and castInfo.spellInfo ~= nil then
-        local color = BAR_COLORS["Casting"]
+function TGUF3.CastBar:UPDATE_SPELL(unit)
+    local castInfo = unit.castInfo
+    if unit.exists and castInfo.spell ~= nil then
+        local color = BAR_COLORS[castInfo.spellType]
+        self.Icon.Texture:SetTexture(castInfo.texture)
+        self.Icon:Show()
         self.Bar.Texture:SetVertexColor(color.r, color.g, color.b)
         self.Bar:Show()
         self:OnUpdate()
     else
+        self.Icon:Hide()
         self.Bar:Hide()
     end
 end
 
 function TGUF3.CastBar:OnUpdate()
-    local castInfo = self.unitFrame.unit.cleuCastInfo
-    local duration = castInfo.spellInfo.castTime
-    local percent
-    if duration ~= nil then
-        self.Bar.Spark:Show()
-        percent = (GetTime() - castInfo.timestamp) / duration
-    else
-        self.Bar.Spark:Hide()
-        percent = 1
-    end
+    local castInfo = self.unitFrame.unit.castInfo
+    local duration = castInfo.endTime - castInfo.startTime
+    local percent = (GetTime() - castInfo.startTime) / duration
     if percent < 0 then
         percent = 0
     end
-    if percent > 1 then
-        percent = 1
-    end
+    if percent <= 1 then
+        if castInfo.spellType == "Channeling" then
+            percent = 1 - percent
+        end
 
-    if castInfo.spellType == "Channeling" then
-        percent = 1 - percent
+        local pw = math.floor(percent * self.realWidth + 0.5)
+        if pw <= 0 then
+            pw = 1
+        end
+        self.Bar:SetWidth(pw)
+    else
+        self.Icon:Hide()
+        self.Bar:Hide()
     end
-
-    local pw = math.floor(percent * self.realWidth + 0.5)
-    if pw <= 0 then
-        pw = 1
-    end
-    self.Bar:SetWidth(pw)
 end
