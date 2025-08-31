@@ -2,7 +2,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
     <Frame name="TG3CastBarTemplate" mixin="TG3CastBarMixin" virtual="true">
         <Frames>
-            <Frame parentKey="Icon" visible="true">
+            <Frame parentKey="Icon">
                 <Anchors>
                     <Anchor point="LEFT"/>
                 </Anchors>
