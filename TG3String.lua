@@ -166,6 +166,28 @@ local substitutionTable = {
         end
     },
 
+    -- Creature classification.
+    ["$el"] = {
+        flag = TGU.FLAGS.CLASSIFICATION,
+        func = function(unit)
+            if (unit.classification == "worldboss" or
+                unit.classification == "elite")
+            then
+                return "+"
+            end
+
+            if unit.classification == "rare" then
+                return "R"
+            end
+
+            if unit.classification == "rareelite" then
+                return "R+"
+            end
+
+            return ""
+        end
+    },
+
     -- Threat ceiling - total amount of threat required to pull aggro.
     ["$thc"] = {
         flag = TGU.FLAGS.THREAT,

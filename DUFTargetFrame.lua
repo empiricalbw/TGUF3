@@ -113,7 +113,7 @@ DUF_FRAMES.Target = {
                     {
                         class    = TGUF3.String,
                         key      = "ClassLevel",
-                        text     = "$lv $ccl",
+                        text     = "$lv$el $ccl",
                         alignH   = "LEFT",
                         alignV   = "TOP",
                         font     = "DUF_Font1.ttf",
