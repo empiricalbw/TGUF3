@@ -9,6 +9,7 @@ function TG3Aura:_Init(elem)
     self.mineDimension = elem.mineDimension
 
     self.Count:SetFont(font, fontSize, fontFlags)
+    self.Cooldown:SetHideCountdownNumbers(true)
     self:SetScript("OnEnter", self.OnEnter)
     self:SetScript("OnLeave", self.OnLeave)
 end
