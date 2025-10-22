@@ -1,6 +1,30 @@
 <?xml version="1.0"?>
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
-    <StatusBar name="TG3HealthBarTemplate" mixin="TG3HealthBarMixin" virtual="true">
+    <Frame name="TG3HealthBarTemplate" mixin="TG3HealthBarMixin" virtual="true">
+        <Frames>
+            <Frame parentKey="BackBar">
+                <Anchors>
+                    <Anchor point="TOPLEFT"/>
+                    <Anchor point="BOTTOM"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture parentKey="Texture" file="Interface\AddOns\TGUF_2\DUF_Images\bg" setAllPoints="true"/>
+                    </Layer>
+                </Layers>
+            </Frame>
+            <Frame parentKey="FrontBar" setAllPoints="true">
+                <Anchors>
+                    <Anchor point="TOPLEFT"/>
+                    <Anchor point="BOTTOM"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture parentKey="Texture" file="Interface\AddOns\TGUF_2\DUF_Images\bg" setAllPoints="true"/>
+                    </Layer>
+                </Layers>
+            </Frame>
+        </Frames>
         <Layers>
             <Layer level="BACKGROUND">
                 <Texture setAllPoints="true">
@@ -8,5 +32,5 @@
                 </Texture>
             </Layer>
         </Layers>
-    </StatusBar>
+    </Frame>
 </Ui>
