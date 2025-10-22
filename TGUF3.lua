@@ -6,6 +6,10 @@ TGUF3 = {
     priorityTable = {},
 }
 
+local hiddenFrame = CreateFrame("Frame", nil, UIParent)
+hiddenFrame:SetAllPoints()
+hiddenFrame:Hide()
+
 local ROLE_PRIORITY = {
     TANK    = 1,
     HEALER  = 2,
@@ -90,7 +94,7 @@ function TGUF3.ADDON_LOADED(addOnName)
     end
 
     TGUF3.DisableBlizzardFrames()
-    BuffFrame_Update()
+    --BuffFrame_Update()
 end
 
 function TGUF3.PLAYER_ENTERING_WORLD()
@@ -232,48 +236,40 @@ function TGUF3.DisableBlizzardFrames()
     end
 end
 
+local function HideBlizzardFrame(f)
+    f:UnregisterAllEvents()
+    f:SetParent(hiddenFrame)
+    UnregisterUnitWatch(f)
+    f:Hide()
+end
+
 function TGUF3.HideBlizzardPlayerFrames()
-    PlayerFrame:UnregisterAllEvents()
     PlayerFrameHealthBar:UnregisterAllEvents()
     PlayerFrameManaBar:UnregisterAllEvents()
-    PlayerFrame:Hide()
+    HideBlizzardFrame(PlayerFrame)
 end
 
 function TGUF3.HideBlizzardPartyFrames()
     for i=1, 4 do
         local f = _G["PartyMemberFrame"..i]
-        f:UnregisterAllEvents()
-        f:Hide()
-        f.Show = function() end
-    end
-end
-
-function TGUF3.HideBlizzardRaidFramesHook()
-    CompactRaidFrameManager:UnregisterAllEvents()
-    CompactRaidFrameContainer:UnregisterAllEvents()
-    CompactRaidFrameManager:Hide()
-    local shown = CompactRaidFrameManager_GetSetting("IsShown")
-    if shown and shown ~= "0" then
-        CompactRaidFrameManager_SetSetting("IsShown", "0")
+        HideBlizzardFrame(f)
     end
 end
 
 function TGUF3.HideBlizzardRaidFrames()
-    hooksecurefunc("CompactRaidFrameManager_UpdateShown",
-                   TGUF3.HideBlizzardRaidFramesHook)
-
-    TGUF3.HideBlizzardRaidFramesHook()
-
-    CompactRaidFrameContainer:HookScript("OnShow",
-                                         TGUF3.HideBlizzardRaidFramesHook)
-    CompactRaidFrameManager:HookScript("OnShow",
-                                       TGUF3.HideBlizzardRaidFramesHook)
+    HideBlizzardFrame(CompactRaidFrameManager)
+    HideBlizzardFrame(CompactRaidFrameContainer)
+    --[[
+    local shown = CompactRaidFrameManager_GetSetting("IsShown")
+    if shown and shown ~= "0" then
+        CompactRaidFrameManager_SetSetting("IsShown", "0")
+    end
+    ]]
 end
 
 function TGUF3.HideBlizzardTargetFrames()
-    TargetFrame:UnregisterAllEvents()
-    TargetFrame:Hide()
-    ComboFrame:UnregisterAllEvents()
+    HideBlizzardFrame(TargetFrame)
+    HideBlizzardFrame(ComboFrame)
 end
 
 function TGUF3.SetPriorityHandler(dd, index)
