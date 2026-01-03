@@ -13,6 +13,8 @@ function TGUF3.Element.MakeElem(unitFrame, parent, elem)
     end
     if elem.frameLevel then
         f:SetFrameLevel(elem.frameLevel)
+    else
+        f:SetFrameLevel(f:GetFrameLevel() + 1)
     end
     TGUF3.Element.SetAnchors(f, elem.anchors)
     if elem.width then
