@@ -18,6 +18,7 @@ TG3PowerBar.xml
 TG3CastBar.xml
 TG3ConTexture.xml
 TG3CombatTexture.xml
+TG3PVPTexture.xml
 TG3LootMasterTexture.xml
 TG3LeaderTexture.xml
 TG3Model.xml
@@ -38,6 +39,7 @@ TG3PowerBar.lua
 TG3CastBar.lua
 TG3ConTexture.lua
 TG3CombatTexture.lua
+TG3PVPTexture.lua
 TG3LootMasterTexture.lua
 TG3LeaderTexture.lua
 TG3Model.lua

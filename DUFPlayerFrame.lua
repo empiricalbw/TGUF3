@@ -28,6 +28,17 @@ DUF_FRAMES.Player = {
                 }
             },
 
+            -- PVP icon.
+            {
+                class   = TGUF3.PVPTexture,
+                width   = 24,
+                height  = 24,
+                anchors = {
+                    {point = "RIGHT", relativePoint = "LEFT",
+                     dx = 2, dy = -2},
+                }
+            },
+
             -- Master looter icon.
             {
                 class   = TGUF3.LootMasterTexture,
